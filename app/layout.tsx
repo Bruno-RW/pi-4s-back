@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 
+import ContextProvider from "@/providers/ContextProvider";
+
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -10,7 +12,7 @@ export const metadata: Metadata = {
 
 const font = Roboto({ 
   subsets: ["latin"], 
-  display: "swap", 
+  display: "swap",
   weight: ["300", "400", "500", "700"] 
 });
 
@@ -20,11 +22,11 @@ export default function RootLayout(
   return (
     <html lang="pt-BR">
       <body className={font.className} suppressHydrationWarning={true}>
-        {/* <ContextProvider> */}
+        <ContextProvider>
           <div className="flex relative">
             {children}
           </div>
-        {/* </ContextProvider> */}
+        </ContextProvider>
       </body>
     </html>
   )
