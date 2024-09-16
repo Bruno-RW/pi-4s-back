@@ -16,9 +16,9 @@ const font = Roboto({
   weight: ["300", "400", "500", "700"] 
 });
 
-export default function RootLayout(
+const RootLayout = (
   { children }: Readonly<{ children: React.ReactNode }>
-) {
+) => {
   return (
     <html lang="pt-BR">
       <body className={font.className} suppressHydrationWarning={true}>
@@ -29,5 +29,7 @@ export default function RootLayout(
         </ContextProvider>
       </body>
     </html>
-  )
-}
+  );
+};
+
+export default RootLayout;

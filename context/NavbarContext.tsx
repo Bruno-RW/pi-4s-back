@@ -21,7 +21,7 @@ export default function NavbarContextProvider(
       {children}
     </NavbarContext.Provider>
   );
-}
+};
 
 export function useNavbar() {
   const context = useContext(NavbarContext);
@@ -31,4 +31,4 @@ export function useNavbar() {
   }
 
   return context;
-}
+};

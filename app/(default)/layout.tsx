@@ -23,7 +23,7 @@ const DefaultLayout = ({ children }: { children: React.ReactNode }) => {
         </div>
       </main>
     </>
-  )
+  );
 };
 
 export default DefaultLayout;
