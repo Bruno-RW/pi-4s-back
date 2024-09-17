@@ -23,7 +23,7 @@ const Navbar: React.FC<NavbarProps> = ({ isActive }) => {
 
       <MappedRoutes isActive={isActive} />
     </nav>
-  )
+  );
 };
 
 export default Navbar;

@@ -76,8 +76,8 @@ html.dark .navbar-li.active .span-after {
 
 /* Smartphone */
 @media (min-height:560px) {
-  .navbar-li:nth-child(6) {
-    margin-bottom: calc(100vh - 560px);
+  .navbar-li:nth-child(7) {
+    margin-top: calc(100vh - 500px);
   }
 }
 
@@ -88,6 +88,7 @@ html.dark .navbar-li.active .span-after {
   -webkit-appearance: none;
   appearance: none;
 }
+
 
 /* Scrollbar styles */
 ::-webkit-scrollbar-track {
@@ -115,6 +116,7 @@ html::-webkit-scrollbar {
   background-color: #F9FAFB;
   width: 1.075em;
 }
+
 
 /* Scrollbar styles (dark mode) */
 html.dark::-webkit-scrollbar-track {
