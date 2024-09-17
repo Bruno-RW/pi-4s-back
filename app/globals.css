@@ -41,6 +41,10 @@ h3 {
   @apply border border-black/20 focus:border-black/50;
 }
 
+.transition-color-none {
+  transition: background-color 0s !important;
+}
+
 
 /* ----- LOGIN PAGE ----- */
 .login {
