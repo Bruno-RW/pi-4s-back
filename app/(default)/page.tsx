@@ -1,7 +1,14 @@
+"use client";
+
+import { useEffect } from "react";
+import toast from "react-hot-toast";
+
 const HomePage = () => {
+  useEffect(() => toast.remove(), []);
+
   return (
-    <div className="">
-      PAGE
+    <div className="flex flex-col">
+      Dashboard page
     </div>
   );
 };
