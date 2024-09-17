@@ -3,7 +3,7 @@ import { Roboto } from "next/font/google";
 
 import ContextProvider from "@/providers/ContextProvider";
 
-import "./globals.css";
+import "@/app/globals.css";
 
 export const metadata: Metadata = {
   title: "Sensor Data Visualization",
