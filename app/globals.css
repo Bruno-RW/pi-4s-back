@@ -68,15 +68,9 @@ html.dark .navbar-li.active .span-after {
 }
 
 
-/* ----- SETTINGS PAGE ----- */
-.edit-icon {
-  left: calc(33% - 25px);
-}
-
-
 /* Smartphone */
 @media (min-height:560px) {
-  .navbar-li:nth-child(7) {
+  .navbar-li:nth-child(6) {
     margin-top: calc(100vh - 500px);
   }
 }

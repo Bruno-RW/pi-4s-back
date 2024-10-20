@@ -1,5 +1,5 @@
 import { HiOutlineHome } from "react-icons/hi";
-import { BsDiagram3, BsBookmarks } from "react-icons/bs";
+import { BsDiagram3 } from "react-icons/bs";
 import { AiOutlineTags } from "react-icons/ai";
 import { LiaUserShieldSolid } from "react-icons/lia";
 import { PiGearSix } from "react-icons/pi";
