@@ -7,7 +7,7 @@ import "@/app/globals.css";
 
 export const metadata: Metadata = {
   title: "Sensor Data Visualization",
-  description: "Sensor Data Visualizatio",
+  description: "Sensor Data Visualization",
 };
 
 const font = Roboto({ 

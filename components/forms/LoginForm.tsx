@@ -62,11 +62,12 @@ const LoginForm = () => {
   };
 
   return (
-    <form className="flex flex-col w-full py-3" onSubmit={handleSubmit(onSubmit)}>
-      <div className="flex flex-col gap-y-3 mb-[18px]">
+    <form className="flex flex-col w-full gap-y-3 py-3" onSubmit={handleSubmit(onSubmit)}>
+      <div className="flex flex-col gap-y-3 mb-2">
         <div className="flex flex-col gap-y-1">
           <Input endContent={<LuMail {...iconStyle} />}
             {...register("email")}
+            className="self-center"
             name="email"
             label="Email"
             variant="bordered"
@@ -79,6 +80,7 @@ const LoginForm = () => {
         <div className="flex flex-col gap-y-1">
           <Input endContent={<LuLock {...iconStyle} />}
             {...register("password")}
+            className="self-center"
             type="password"
             name="password"
             label="Password"
