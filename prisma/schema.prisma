@@ -1,0 +1,43 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider     = "postgresql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model nit2xli {
+  deduplicationId      String    @db.Uuid
+  devEui               String?   @db.Char(16)
+  deviceName           String?   @db.VarChar(100)
+  emw_rain_lvl         Float?    @db.Real
+  emw_avg_wind_speed   Int?
+  emw_gust_wind_speed  Int?
+  emw_wind_direction   Int?
+  emw_temperature      Float?    @db.Real
+  emw_humidity         Float?    @db.Real
+  emw_luminosity       BigInt?
+  emw_uv               Float?    @db.Real
+  emw_solar_radiation  Float?    @db.Real
+  emw_atm_pres         Float?    @db.Real
+  internal_temperature Float?    @db.Real
+  internal_humidity    Float?    @db.Real
+  time                 DateTime? @db.Timestamptz(6)
+  deviceInfo           Json?     @db.Json
+  rxInfo               Json?     @db.Json
+
+  @@ignore
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  type      String   @db.Char(1)
+  name      String   @db.VarChar(70)
+  email     String   @unique @db.VarChar(70)
+  password  String   @db.VarChar(255)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
