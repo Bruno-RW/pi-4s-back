@@ -5,7 +5,7 @@ import { LuMail, LuLock } from "react-icons/lu";
 import { useRouter } from "next/navigation";
 import { Input } from "@nextui-org/input";
 import { useForm } from "react-hook-form";
-// import { signIn } from "next-auth/react";
+import { signIn } from "next-auth/react";
 import toast from "react-hot-toast";
 import { useState } from "react";
 
@@ -36,17 +36,17 @@ const LoginForm = () => {
     try {
       setIsLoading(true);
 
-      // const loginData = await signIn("credentials", {
-      //   email: data.email,
-      //   password: data.password,
-      //   redirect: false
-      // });
+      const loginData = await signIn("credentials", {
+        email: data.email,
+        password: data.password,
+        redirect: false
+      });
 
-      // if (loginData?.error) {
-      //   toast.error("Incorrect e-mail or password", toastStyle);
-      //   isUserError = true;
-      //   return;
-      // }
+      if (loginData?.error) {
+        toast.error("Incorrect e-mail or password", toastStyle);
+        isUserError = true;
+        return;
+      }
       
       router.push("/");
 

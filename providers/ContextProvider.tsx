@@ -2,7 +2,7 @@
 
 import { NextUIProvider } from "@nextui-org/system";
 
-// import { SessionProvider } from "next-auth/react";
+import { SessionProvider } from "next-auth/react";
 import { Toaster } from "react-hot-toast";
 
 import NavbarContextProvider from "@/context/NavbarContext";
@@ -10,7 +10,7 @@ import ThemeContextProvider from "@/context/ThemeContext";
 
 const ContextProvider = ({ children }: { children: React.ReactNode }) => {
   return (
-    // <SessionProvider>
+    <SessionProvider>
       <NextUIProvider>
         <ThemeContextProvider>
             <NavbarContextProvider>
@@ -19,8 +19,8 @@ const ContextProvider = ({ children }: { children: React.ReactNode }) => {
             </NavbarContextProvider>
         </ThemeContextProvider>
       </NextUIProvider>
-    // </SessionProvider>
-  )
+    </SessionProvider>
+  );
 };
 
 export default ContextProvider;
