@@ -27,7 +27,9 @@ export function getUrl(headers: ReadonlyHeaders) {
   return { url, pathname, origin };
 }
 
-export function formatDateTime (date: Date) {
+export function formatDateTime(date: Date | null) {
+  if (!date) return "";
+  
   return new Intl.DateTimeFormat("en-US", {
     day: "numeric",
     month: "numeric",
