@@ -38,7 +38,7 @@ const Modal: React.FC<ModalProps> = ({
         </div>
       </DialogContent>
     </Dialog>
-  )
+  );
 };
 
 export default Modal;

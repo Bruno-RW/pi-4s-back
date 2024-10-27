@@ -29,7 +29,7 @@ const Badge: React.FC<BadgeProps> = ({ className, variant="default", children })
     <span className={cn(badgeStyles({ variant }), className)}>
       {children}
     </span>
-  )
+  );
 };
 
 export default Badge;
