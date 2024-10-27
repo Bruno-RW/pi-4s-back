@@ -1,3 +1,4 @@
+import { ReadonlyHeaders } from "next/dist/server/web/spec-extension/adapters/headers";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
@@ -17,3 +18,22 @@ export function getInitials(fullName: string) {
 
   return firstName + lastName;
 };
+
+export function getUrl(headers: ReadonlyHeaders) {
+  const url = headers.get('x-url') as string;
+  const pathname = headers.get('x-pathname') as string;
+  const origin = headers.get('x-origin') as string;
+
+  return { url, pathname, origin };
+}
+
+export function formatDateTime (date: Date) {
+  return new Intl.DateTimeFormat("en-US", {
+    day: "numeric",
+    month: "numeric",
+    year: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+    second: "numeric",
+  }).format(date);
+}
