@@ -33,11 +33,13 @@ export async function PATCH(
 
     const existingUserById = await db.user.findUnique({ where: { id: Number(params.userId) } });
 
-    if (!existingUserById) return NextResponse.json("User does not exist", { status: 400 });
+    if (!existingUserById) 
+      return NextResponse.json("User does not exist", { status: 400 });
 
     const existingUserByEmail = await db.user.findUnique({ where: { email } });
 
-    if (existingUserByEmail && existingUserByEmail.id !== existingUserById.id) return NextResponse.json("E-mail is already taken", { status: 400 });
+    if (existingUserByEmail && existingUserByEmail.id !== existingUserById.id) 
+      return NextResponse.json("E-mail is already taken", { status: 400 });
 
     if (!password) {
       await db.user.update({
@@ -54,7 +56,8 @@ export async function PATCH(
 
     const isSamePassword = await compare(password, existingUserById.password);
 
-    if (isSamePassword) return NextResponse.json("New password must be different than the current password", { status: 400 });
+    if (isSamePassword)
+      return NextResponse.json("New password must be different than the current password", { status: 400 });
 
     const newHashedPassword = await hash(password, 10);
 
