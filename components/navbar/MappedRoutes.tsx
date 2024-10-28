@@ -1,6 +1,6 @@
 "use client";
 
-// import { signOut, useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import toast from "react-hot-toast";
 import Link from "next/link";
 
@@ -14,18 +14,18 @@ import { usePathname } from "next/navigation";
 interface MappedRoutesProps { isActive: boolean };
 
 const MappedRoutes: React.FC<MappedRoutesProps> = ({ isActive }) => {
-  // const { data: session } = useSession();
+  const { data: session } = useSession();
   const { toastStyle } = useToastStyle();
 
-  // const isMaster = session?.user.type === "M";
+  const isMaster = session?.user.type === "M";
   
   const pathName = usePathname();
 
-  // const onClick = (item: any) => {
-  //   if (item.signOut) signOut();
+  const onClick = (item: any) => {
+    if (item.signOut) signOut();
 
-  //   if (!isMaster && item.type === "M") toast.error("Unauthorized", toastStyle);
-  // };
+    if (!isMaster && item.type === "M") toast.error("Unauthorized", toastStyle);
+  };
 
   return (
     <ul className="w-full">
@@ -38,7 +38,7 @@ const MappedRoutes: React.FC<MappedRoutesProps> = ({ isActive }) => {
             pathName === item.url && isActive && "ml-2 hover:pl-3" 
           )}
           key={key}
-          // onClick={() => onClick(item)}
+          onClick={() => onClick(item)}
         >
           <Link
             className={cn(
@@ -65,9 +65,9 @@ const MappedRoutes: React.FC<MappedRoutesProps> = ({ isActive }) => {
                     <Badge
                       className={cn(
                         "ml-2 group-hover:text-red-600 dark:group-hover:text-red-300 ",
-                        // isMaster && "group-hover:text-green-600 dark:group-hover:text-green-300"
+                        isMaster && "group-hover:text-green-600 dark:group-hover:text-green-300"
                       )}
-                      // variant={isMaster ? "green" : "red"}
+                      variant={isMaster ? "green" : "red"}
                     >
                       Master
                     </Badge>
