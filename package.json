@@ -13,6 +13,7 @@
     "@next-auth/prisma-adapter": "^1.0.7",
     "@nextui-org/dropdown": "^2.1.31",
     "@nextui-org/input": "^2.2.5",
+    "@nextui-org/select": "^2.2.7",
     "@nextui-org/system": "^2.2.6",
     "@nextui-org/theme": "^2.2.11",
     "@nextui-org/tooltip": "^2.0.41",
