@@ -8,9 +8,8 @@ datasource db {
   relationMode = "prisma"
 }
 
-/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
 model nit2xli {
-  deduplicationId      String    @db.Uuid
+  deduplicationId      String    @id @db.Uuid
   devEui               String?   @db.Char(16)
   deviceName           String?   @db.VarChar(100)
   emw_rain_lvl         Float?    @db.Real
@@ -28,18 +27,14 @@ model nit2xli {
   time                 DateTime? @db.Timestamptz(6)
   deviceInfo           Json?     @db.Json
   rxInfo               Json?     @db.Json
-
-  @@ignore
 }
 
-//? Admin/master users
 model User {
   id        Int       @id @default(autoincrement())
   type      String    @db.Char(1)
   name      String    @db.VarChar(70)
   email     String    @unique @db.VarChar(70)
   password  String    @db.VarChar(255)
-
   createdAt DateTime  @default(now())
   updatedAt DateTime? @updatedAt
 }
