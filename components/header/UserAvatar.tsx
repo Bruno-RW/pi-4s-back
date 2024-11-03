@@ -15,10 +15,9 @@ import { getInitials } from "@/lib/utils";
 const UserAvatar = () => {
   const userProviderImg = null;
   const { theme, toggleTheme } = useTheme();
-  // const { data: session } = useSession();
+  const { data: session } = useSession();
 
-  // const userName = getInitials(session?.user.name || "Default User");
-  let userName = getInitials('Test Number User');
+  const userName = getInitials(session?.user.name || "Default User");
 
   return (
     <Dropdown>
