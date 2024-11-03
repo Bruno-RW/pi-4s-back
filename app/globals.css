@@ -70,8 +70,8 @@ html.dark .navbar-li.active .span-after {
 
 /* Smartphone */
 @media (min-height:560px) {
-  .navbar-li:nth-child(6) {
-    margin-top: calc(100vh - 500px);
+  .navbar-li:nth-child(10) {
+    margin-top: calc(100vh - 720px);
   }
 }
 
