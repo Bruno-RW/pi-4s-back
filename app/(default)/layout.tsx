@@ -13,7 +13,6 @@ const DefaultLayout = ({ children }: { children: React.ReactNode }) => {
     <>
       <Navbar isActive={isActive} />
       <main className={cn(
-        // transition-color-none
         "flex flex-col gap-y-3 py-2 pl-[272px] pr-3 w-full h-[200%] transition-all bg-gray-50 dark:bg-neutral-900 ", 
         isActive && "pl-[72px]"
         )}
