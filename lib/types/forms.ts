@@ -30,6 +30,31 @@ export type loginFormData = z.infer<typeof loginFormSchema>;
 
 
 
+//? ---------- GENERAL DATA ---------- ?//
+export const generalFormSchema = z.object({
+  deduplicationId:      z.string().uuid(), // Automatically added
+  devEui:               z.string().max(16).nullable(),
+  deviceName:           z.string().max(100).nullable(),
+  emw_rain_lvl:         z.number().nullable(),
+  emw_avg_wind_speed:   z.number().int().nullable(),
+  emw_gust_wind_speed:  z.number().int().nullable(),
+  emw_wind_direction:   z.number().int().nullable(),
+  emw_temperature:      z.number().nullable(),
+  emw_humidity:         z.number().nullable(),
+  emw_luminosity:       z.bigint().nullable(),
+  emw_uv:               z.number().nullable(),
+  emw_solar_radiation:  z.number().nullable(),
+  emw_atm_pres:         z.number().nullable(),
+  internal_temperature: z.number().nullable(),
+  internal_humidity:    z.number().nullable(),
+  time:                 z.date(), // Automatically added
+  deviceInfo:           z.any().nullable(), // JSON
+  rxInfo:               z.any().nullable(), // JSON
+});
+export type generalFormSchema = z.infer<typeof generalFormSchema>;
+
+
+
 //! ---------- MASTER USER ---------- !//
 export const userFormSchema = z.object({
   name: z
