@@ -9,7 +9,7 @@ datasource db {
 }
 
 model nit2xli {
-  deduplicationId      String    @id @db.Uuid
+  deduplicationId      String    @id @default(uuid()) @db.Uuid
   devEui               String?   @db.Char(16)
   deviceName           String?   @db.VarChar(100)
   emw_rain_lvl         Float?    @db.Real
@@ -24,7 +24,7 @@ model nit2xli {
   emw_atm_pres         Float?    @db.Real
   internal_temperature Float?    @db.Real
   internal_humidity    Float?    @db.Real
-  time                 DateTime? @db.Timestamptz(6)
+  time                 DateTime? @default(now()) @db.Timestamptz(6)
   deviceInfo           Json?     @db.Json
   rxInfo               Json?     @db.Json
 }
