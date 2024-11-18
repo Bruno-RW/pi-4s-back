@@ -8,9 +8,9 @@ interface GeneralDataProps { data: GeneralColumnsProps[] };
 const GeneralData: React.FC<GeneralDataProps> = ({ data }) => {
   return (
     <>
-      <DataTable entityName="general" searchKey="name" columns={GeneralColumns} data={data} />
+      <DataTable entityName="general" searchKey="deviceName" columns={GeneralColumns} data={data} />
 
-      <ApiList entityName="general" entityIdName="generalId" type="master" />
+      <ApiList entityName="general" entityIdName="generalId" type="admin" />
     </>
   );
 };
