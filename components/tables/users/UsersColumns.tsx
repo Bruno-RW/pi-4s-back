@@ -38,6 +38,7 @@ export const UsersColumns: ColumnDef<UsersColumnsProps>[] = [
     enableSorting: false,
     enableHiding: false,
   },
+
   {
     accessorKey: "id",
     header: ({ column }) => <DataTableColumnHeader column={column} title="ID" center />,
@@ -64,6 +65,7 @@ export const UsersColumns: ColumnDef<UsersColumnsProps>[] = [
     accessorKey: "updatedAt",
     header: ({ column }) => <DataTableColumnHeader column={column} title="Updated" />,
   },
+  
   {
     id: "actions",
     header: () => centered("Actions"),

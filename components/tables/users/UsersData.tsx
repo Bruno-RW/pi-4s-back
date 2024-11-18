@@ -13,5 +13,6 @@ const UsersData: React.FC<UsersDataProps> = ({ data }) => {
       <ApiList entityName="users" entityIdName="userId" type="master" />
     </>
   );
-}
+};
+
 export default UsersData;

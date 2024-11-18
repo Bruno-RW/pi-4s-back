@@ -66,5 +66,6 @@ const UsersActions: React.FC<UsersActionsProps> = ({ data }) => {
       </div>
     </>
   );
-}
+};
+
 export default UsersActions;
