@@ -51,7 +51,7 @@ export const generalFormSchema = z.object({
   deviceInfo:           z.any().nullable(), // JSON
   rxInfo:               z.any().nullable(), // JSON
 });
-export type generalFormSchema = z.infer<typeof generalFormSchema>;
+export type generalFormData = z.infer<typeof generalFormSchema>;
 
 
 
