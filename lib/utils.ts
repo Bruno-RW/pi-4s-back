@@ -10,6 +10,10 @@ export function capitalize(string: string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 };
 
+export function formatNumber(number: number) {
+  return new Intl.NumberFormat('en-US').format(number)
+}
+
 export function getInitials(fullName: string) {
   const nameArray = fullName.split(" ");
 

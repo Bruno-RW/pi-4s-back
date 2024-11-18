@@ -14,7 +14,8 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+
+import { cn, formatNumber } from "@/lib/utils";
 
 interface DataTablePaginationProps<TData> { table: Table<TData>; isActive: boolean };
 
@@ -23,7 +24,7 @@ export function DataTablePagination<TData>({ table, isActive }: DataTablePaginat
     <div className="flex items-center justify-between px-2">
       <div className="flex-1 text-sm text-muted-foreground">
         {table.getFilteredSelectedRowModel().rows.length} of {" "}
-        {table.getFilteredRowModel().rows.length} row(s) selected.
+        {formatNumber(table.getFilteredRowModel().rows.length)} row(s) selected.
       </div>
 
       <div className="flex items-center space-x-2 md:space-x-6 lg:space-x-8">
@@ -47,7 +48,7 @@ export function DataTablePagination<TData>({ table, isActive }: DataTablePaginat
 
         <div className="flex max-w-[100px] items-center justify-center text-sm font-medium">
           Page {table.getState().pagination.pageIndex + 1} of {" "}
-          {table.getPageCount()}
+          {formatNumber(table.getPageCount())}
         </div>
 
         <div className={cn("flex flex-col sm:flex-row items-center space-x-2", isActive && "flex-row")}>

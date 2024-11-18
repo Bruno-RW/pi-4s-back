@@ -15,7 +15,7 @@ import {
 } from "@tanstack/react-table";
 import { AiOutlinePlus } from "react-icons/ai";
 
-import { capitalize } from "@/lib/utils";
+import { capitalize, formatNumber } from "@/lib/utils";
 
 import {
   Table,
@@ -74,7 +74,7 @@ export default function DataTable<TData, TValue>({ columns, entityName, searchKe
     <section className="flex flex-col gap-y-3">
       <div className="flex flex-col gap-y-3">
         <div className="flex items-center justify-between">
-          <Heading title={`${capitalize(entityName)} (${data.length})`} description={`Manage ${entityName}`} />
+          <Heading title={`${capitalize(entityName)} (${formatNumber(data.length)})`} description={`Manage ${entityName}`} />
 
           <Button className="bg-border-shadow px-3" href={`/${entityName}/new`}>
             <AiOutlinePlus size={20} />
@@ -94,7 +94,7 @@ export default function DataTable<TData, TValue>({ columns, entityName, searchKe
                 <TableRow key={headerGroup.id}>
                   {headerGroup.headers.map(header => 
                     <TableHead className="text-black/70 font-bold dark:text-neutral-400" key={header.id}>
-                        {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
+                      {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
                     </TableHead>
                   )}
                 </TableRow>
