@@ -18,4 +18,5 @@ const UsersPage = async () => {
 
   return <UsersData data={formattedUsers} />;
 }
+
 export default UsersPage;
