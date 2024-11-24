@@ -25,7 +25,7 @@ export function DataTableFilters<TData>({ table, searchKey }: DataTableFiltersPr
         onChange={(event: any) => table.getColumn(searchKey)?.setFilterValue(event.target.value)}
       />
 
-      <DropdownMenu>
+      <DropdownMenu modal={false}>
         <DropdownMenuTrigger asChild>
           <Button className="hidden h-8 lg:flex dark:bg-neutral-950/50" variant="outline" size="sm">
             <PiSlidersHorizontal className="mr-2 h-4 w-4" /> Columns
