@@ -1,7 +1,9 @@
 import db from "@/lib/db";
+import { formatDateTime } from "@/lib/utils";
 
 import GeneralData from "@/components/tables/general/GeneralData";
 import { GeneralColumnsProps } from "@/components/tables/general/GeneralColumns";
+
 
 const GeneralPage = async () => {
   const general = await db.nit2xli.findMany();
@@ -26,9 +28,10 @@ const GeneralPage = async () => {
     internalTemperature: general.internal_temperature,
     internalHumidity: general.internal_humidity,
 
-    time: general.time
+    time: formatDateTime(general.time)
   }));
 
   return <GeneralData data={formattedGeneral} />;
 }
+
 export default GeneralPage;

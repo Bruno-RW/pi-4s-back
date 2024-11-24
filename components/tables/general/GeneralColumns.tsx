@@ -27,7 +27,7 @@ export type GeneralColumnsProps = {
   internalTemperature: number | null;
   internalHumidity: number | null;
 
-  time: Date | null;
+  time: string | null;
 };
 
 const centered = (text: string | number | null) => <div className="text-center">{text}</div>;
@@ -115,6 +115,10 @@ export const GeneralColumns: ColumnDef<GeneralColumnsProps>[] = [
   {
     accessorKey: "internalHumidity",
     header: ({ column }) => <DataTableColumnHeader column={column} title="InternalHumidity" center />,
+  },
+  {
+    accessorKey: "time",
+    header: ({ column }) => <DataTableColumnHeader column={column} title="Time" center />,
   },
 
   {
