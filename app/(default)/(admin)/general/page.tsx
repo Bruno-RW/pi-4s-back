@@ -4,9 +4,12 @@ import { formatDateTime } from "@/lib/utils";
 import GeneralData from "@/components/tables/general/GeneralData";
 import { GeneralColumnsProps } from "@/components/tables/general/GeneralColumns";
 
-
 const GeneralPage = async () => {
-  const general = await db.nit2xli.findMany();
+  const general = await db.nit2xli.findMany({
+    orderBy: {
+      time: 'desc'
+    }
+  });
 
   const formattedGeneral: GeneralColumnsProps[] = general.map(general => ({
     deduplicationId: general.deduplicationId,
