@@ -69,11 +69,17 @@ html.dark .navbar-li.active .span-after {
 
 
 /* Smartphone */
-@media (min-height:560px) {
+/* @media (min-height:560px) {
   .navbar-li:nth-child(10) {
     margin-top: calc(100vh - 720px);
   }
+} */
+@media (min-height:560px) {
+  .navbar-li:nth-child(4) {
+    margin-top: calc(100vh - 380px);
+  }
 }
+
 
 
 /* Remove "X" icon from search input */
