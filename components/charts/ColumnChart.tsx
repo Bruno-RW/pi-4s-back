@@ -63,7 +63,7 @@ const ColumnChart: React.FC<ColumnChartProps> = ({
             accessibilityLayer 
             data={chartData}
             margin={{
-              top: 8,
+              top: 10,
             }}
             >
             <CartesianGrid vertical={false} />

@@ -65,6 +65,7 @@ const BarChart: React.FC<BarChartProps> = ({
             layout="vertical"
             margin={{
               left: 2,
+              right: 20,
             }}
           >
             <CartesianGrid horizontal={false} />
