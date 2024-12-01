@@ -6,6 +6,10 @@ interface RoutePermissions {
 };
 
 const routePermissions: RoutePermissions = {
+  //? Dashboard
+  "/": "A",
+
+  //? API
   "/api/general": "A",
   // "/api/rain": "A",
   // "/api/wind": "A",
@@ -15,6 +19,7 @@ const routePermissions: RoutePermissions = {
   // "/api/pressure": "A",
   "/api/users": "M",
 
+  //? Pages
   "/general": "A",
   // "/rain": "A",
   // "/wind": "A",
