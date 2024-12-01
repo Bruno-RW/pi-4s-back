@@ -32,6 +32,6 @@ const GeneralPage = async () => {
   }));
 
   return <GeneralData data={formattedGeneral} />;
-}
+};
 
 export default GeneralPage;
