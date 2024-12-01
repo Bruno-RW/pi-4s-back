@@ -54,7 +54,7 @@ const ColumnChart: React.FC<ColumnChartProps> = ({
     <Card>
       <CardHeader>
         <CardTitle>{cardTitle}</CardTitle>
-        {cardDescription ?? <CardDescription>{cardDescription}</CardDescription>}
+        {cardDescription && <CardDescription>{cardDescription}</CardDescription>}
       </CardHeader>
 
       <CardContent>

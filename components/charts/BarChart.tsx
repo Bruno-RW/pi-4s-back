@@ -54,7 +54,7 @@ const BarChart: React.FC<BarChartProps> = ({
     <Card>
       <CardHeader>
         <CardTitle>{cardTitle}</CardTitle>
-        {cardDescription ?? <CardDescription>{cardDescription}</CardDescription>}
+        {cardDescription && <CardDescription>{cardDescription}</CardDescription>}
       </CardHeader>
       
       <CardContent>
