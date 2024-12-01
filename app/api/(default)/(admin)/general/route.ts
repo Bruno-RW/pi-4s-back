@@ -12,4 +12,4 @@ export async function GET(req: Request) {
     console.log("[GENERAL_GET]", error);
     return new NextResponse("Internal error", { status: 500 });
   }
-}
+};

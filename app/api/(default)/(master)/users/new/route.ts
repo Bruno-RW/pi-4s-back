@@ -31,4 +31,4 @@ export async function POST(req: Request) {
     console.log("[NEWUSER_POST]", error);
     return new NextResponse("Internal error", { status: 500 });
   }
-}
+};

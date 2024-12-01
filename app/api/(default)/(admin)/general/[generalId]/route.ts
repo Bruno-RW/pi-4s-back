@@ -20,7 +20,7 @@ export async function GET(
     console.log("[GENERAL_GET]", error);
     return new NextResponse("Internal error", { status: 500 });
   }
-}
+};
 
 export async function PATCH(
   req: Request,
@@ -50,7 +50,7 @@ export async function PATCH(
     console.log("[GENERAL_PATCH]", error);
     return new NextResponse("Internal error", { status: 500 });
   }
-}
+};
 
 export async function DELETE(
   req: Request,
@@ -71,4 +71,4 @@ export async function DELETE(
     console.log("[GENERAL_DELETE]", error);
     return new NextResponse("Internal error", { status: 500 });
   }
-}
+};
