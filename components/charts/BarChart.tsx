@@ -35,20 +35,30 @@ interface BarChartProps {
   cardTitle: string;
   cardDescription?: string;
   chartData: any[];
+
   className?: string;
   dataKeyX?: string;
   dataKeyY?: string;
   labelFormatter?: (value: any) => string;
+
+  hideXAxis?: boolean;
+  hideYAxis?: boolean;
+  chartMargins?: { top?: number; right?: number; bottom?: number; left?: number };
 };
 
 const BarChart: React.FC<BarChartProps> = ({ 
   cardTitle, 
   cardDescription,
   chartData,
+
   className,
   dataKeyX="x",
   dataKeyY="y",
-  labelFormatter = (value) => value
+  labelFormatter = (value) => value,
+
+  hideXAxis = false,
+  hideYAxis = false,
+  chartMargins = { top: 0, right: 25, bottom: 0, left: 0 }
 }) => {
   return (
     <Card>
@@ -63,10 +73,7 @@ const BarChart: React.FC<BarChartProps> = ({
             accessibilityLayer
             data={chartData}
             layout="vertical"
-            margin={{
-              left: 2,
-              right: 20,
-            }}
+            margin={chartMargins}
           >
             <CartesianGrid horizontal={false} />
 
@@ -77,6 +84,7 @@ const BarChart: React.FC<BarChartProps> = ({
               tickMargin={10}
               axisLine={false}
               tickFormatter={labelFormatter}
+              hide={hideYAxis}
             />
 
             <XAxis 
@@ -86,6 +94,7 @@ const BarChart: React.FC<BarChartProps> = ({
               tickMargin={10}
               axisLine={false}
               tickFormatter={labelFormatter}
+              hide={hideXAxis}
             />
 
             <Bar dataKey={dataKeyY} fill="hsl(var(--chart-1))" layout="vertical" radius={5}>

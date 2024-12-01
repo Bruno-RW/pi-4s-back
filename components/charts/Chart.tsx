@@ -18,6 +18,10 @@ interface ChartProps {
   dataKeyX?: string;
   dataKeyY?: string;
   labelFormatter?: (value: any) => string;
+
+  hideXAxis?: boolean;
+  hideYAxis?: boolean;
+  chartMargins?: { top?: number; right?: number; bottom?: number; left?: number };
 };
 
 const Chart: React.FC<ChartProps> = async({
@@ -35,6 +39,10 @@ const Chart: React.FC<ChartProps> = async({
   labelFormatter,
 
   className,
+
+  hideXAxis,
+  hideYAxis,
+  chartMargins,
 
 }) => {
   //TODO: Create data filter
@@ -56,6 +64,9 @@ const Chart: React.FC<ChartProps> = async({
             dataKeyY={dataKeyY}
             className={className}
             labelFormatter={labelFormatter}
+            hideXAxis={hideXAxis}
+            hideYAxis={hideYAxis}
+            chartMargins={chartMargins}
           />
         ) : (
           <BarChart
@@ -65,6 +76,9 @@ const Chart: React.FC<ChartProps> = async({
             dataKeyX={dataKeyX}
             className={className}
             labelFormatter={labelFormatter}
+            hideXAxis={hideXAxis}
+            hideYAxis={hideYAxis}
+            chartMargins={chartMargins}
           />
         )
       }

@@ -35,20 +35,30 @@ interface ColumnChartProps {
   cardTitle: string;
   cardDescription?: string;
   chartData: any[];
+
   className?: string;
   dataKeyX?: string;
   dataKeyY?: string;
   labelFormatter?: (value: any) => string;
+
+  hideXAxis?: boolean;
+  hideYAxis?: boolean;
+  chartMargins?: { top?: number; right?: number; bottom?: number; left?: number };
 };
 
 const ColumnChart: React.FC<ColumnChartProps> = ({ 
   cardTitle, 
   cardDescription,
   chartData,
+
   className,
   dataKeyX="x",
   dataKeyY="y",
-  labelFormatter = (value) => value
+  labelFormatter = (value) => value,
+  
+  hideXAxis = false,
+  hideYAxis = false,
+  chartMargins = { top: 15, right: 0, bottom: 0, left: 0 }
 }) => {
   return (
     <Card>
@@ -60,11 +70,9 @@ const ColumnChart: React.FC<ColumnChartProps> = ({
       <CardContent>
         <ChartContainer className={cn("min-h-[200px] w-full", className)} config={chartConfig}>
           <BarChart 
-            accessibilityLayer 
+            accessibilityLayer
             data={chartData}
-            margin={{
-              top: 10,
-            }}
+            margin={chartMargins}
             >
             <CartesianGrid vertical={false} />
             
@@ -74,6 +82,7 @@ const ColumnChart: React.FC<ColumnChartProps> = ({
               tickMargin={10}
               axisLine={false}
               tickFormatter={labelFormatter}
+              hide={hideXAxis}
             />
 
             <YAxis
@@ -82,6 +91,7 @@ const ColumnChart: React.FC<ColumnChartProps> = ({
               tickMargin={10}
               axisLine={false}
               tickFormatter={labelFormatter}
+              hide={hideYAxis}
             />
 
             <Bar dataKey={dataKeyY} fill="hsl(var(--chart-1))" radius={4}>
