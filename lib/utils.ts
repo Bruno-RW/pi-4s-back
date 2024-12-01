@@ -12,7 +12,7 @@ export function capitalize(string: string) {
 
 export function formatNumber(number: number) {
   return new Intl.NumberFormat('en-US').format(number)
-}
+};
 
 export function getInitials(fullName: string) {
   const nameArray = fullName.split(" ");
@@ -29,17 +29,23 @@ export function getUrl(headers: ReadonlyHeaders) {
   const origin = headers.get('x-origin') as string;
 
   return { url, pathname, origin };
-}
+};
 
-export function formatDateTime(date: Date | null) {
-  if (!date) return "";
+export function formatDateTime(
+  date: Date | null,
+  defaultOptions: Boolean = true,
+  options: Intl.DateTimeFormatOptions = {}
+) {
   
-  return new Intl.DateTimeFormat("en-US", {
+  if (!date) return "";
+
+  const dateOptions: Intl.DateTimeFormatOptions = {
     day: "numeric",
     month: "numeric",
     year: "numeric",
-    hour: "numeric",
-    minute: "numeric",
-    second: "numeric",
-  }).format(date);
-}
+  };
+
+  const formatOptions = defaultOptions ? { ...dateOptions, ...options } : options;
+
+  return new Intl.DateTimeFormat("en-US", formatOptions).format(date);
+};
