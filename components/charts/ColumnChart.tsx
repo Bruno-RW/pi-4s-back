@@ -4,6 +4,7 @@ import {
   Bar,
   BarChart,
   CartesianGrid,
+  LabelList,
   XAxis,
   YAxis
 } from "recharts";
@@ -19,8 +20,6 @@ import {
 import {
   ChartConfig,
   ChartContainer,
-  ChartTooltip,
-  ChartTooltipContent,
 } from "@/components/ui/chart";
 
 import { cn } from "@/lib/utils";
@@ -79,13 +78,14 @@ const ColumnChart: React.FC<ColumnChartProps> = ({
               tickFormatter={labelFormatter}
             />
 
-            {/* <ChartTooltip content={<ChartTooltipContent />} /> */}
-
-            <Bar 
-              dataKey={dataKeyY}
-              fill="hsl(var(--chart-1))" 
-              radius={4} 
-            />
+            <Bar dataKey={dataKeyY} fill="hsl(var(--chart-1))" radius={4}>
+              <LabelList
+                position="top"
+                offset={12}
+                className="fill-foreground"
+                fontSize={12}
+              />
+            </Bar>
           </BarChart>
         </ChartContainer>
       </CardContent>

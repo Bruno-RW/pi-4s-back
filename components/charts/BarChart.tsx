@@ -2,7 +2,9 @@
 
 import { 
   Bar, 
-  BarChart as BChart, 
+  BarChart as BChart,
+  CartesianGrid,
+  LabelList,
   XAxis, 
   YAxis 
 } from "recharts";
@@ -18,8 +20,6 @@ import {
 import {
   ChartConfig,
   ChartContainer,
-  ChartTooltip,
-  ChartTooltipContent,
 } from "@/components/ui/chart";
 
 import { cn } from "@/lib/utils";
@@ -64,9 +64,11 @@ const BarChart: React.FC<BarChartProps> = ({
             data={chartData}
             layout="vertical"
             margin={{
-              left: 0,
+              left: 2,
             }}
           >
+            <CartesianGrid horizontal={false} />
+
             <YAxis
               dataKey={dataKeyX}
               type="category"
@@ -79,15 +81,20 @@ const BarChart: React.FC<BarChartProps> = ({
             <XAxis 
               dataKey={dataKeyY} 
               type="number" 
-              hide 
+              tickLine={false}
+              tickMargin={10}
+              axisLine={false}
+              tickFormatter={labelFormatter}
             />
 
-            {/* <ChartTooltip
-              cursor={false}
-              content={<ChartTooltipContent hideLabel />}
-            /> */}
-
-            <Bar dataKey={dataKeyY} fill="hsl(var(--chart-1))" layout="vertical" radius={5} />
+            <Bar dataKey={dataKeyY} fill="hsl(var(--chart-1))" layout="vertical" radius={5}>
+              <LabelList
+                position="right"
+                offset={8}
+                className="fill-foreground"
+                fontSize={12}
+              />
+            </Bar>
           </BChart>
         </ChartContainer>
       </CardContent>
