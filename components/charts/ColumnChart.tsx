@@ -59,7 +59,13 @@ const ColumnChart: React.FC<ColumnChartProps> = ({
 
       <CardContent>
         <ChartContainer className={cn("min-h-[200px] w-full", className)} config={chartConfig}>
-          <BarChart accessibilityLayer data={chartData}>
+          <BarChart 
+            accessibilityLayer 
+            data={chartData}
+            margin={{
+              top: 8,
+            }}
+            >
             <CartesianGrid vertical={false} />
             
             <XAxis
