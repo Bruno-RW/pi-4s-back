@@ -12,22 +12,22 @@ export type GeneralColumnsProps = {
   devEui: string | null;
   deviceName: string | null;
 
-  emwRainLvl: number | null;
-  emwAvgWindSpeed: number | null;
-  emwGustWindSpeed: number | null;
-  emwWindDirection: number | null;
+  emw_rain_lvl: number | null;
+  emw_avg_wind_speed: number | null;
+  emw_gust_wind_speed: number | null;
+  emw_wind_direction: number | null;
 
-  emwTemperature: number | null;
-  emwHumidity: number | null;
-  emwLuminosity: bigint | null;
-  emwUv: number | null;
-  emwSolarRadiation: number | null;
-  emwAtmPres: number | null;
+  emw_temperature: number | null;
+  emw_humidity: number | null;
+  emw_luminosity: bigint | null;
+  emw_uv: number | null;
+  emw_solar_radiation: number | null;
+  emw_atm_pres: number | null;
 
-  internalTemperature: number | null;
-  internalHumidity: number | null;
+  internal_temperature: number | null;
+  internal_humidity: number | null;
 
-  time: string | null;
+  time: Date | string | null;
 };
 
 const centered = (text: string | number | null) => <div className="text-center">{text}</div>;
@@ -69,51 +69,51 @@ export const GeneralColumns: ColumnDef<GeneralColumnsProps>[] = [
   },
 
   {
-    accessorKey: "emwRainLvl",
+    accessorKey: "emw_rain_lvl",
     header: ({ column }) => <DataTableColumnHeader column={column} title="EmwRainLvl" center />,
   },
   {
-    accessorKey: "emwAvgWindSpeed",
+    accessorKey: "emw_avg_wind_speed",
     header: ({ column }) => <DataTableColumnHeader column={column} title="EmwAvgWindSpeed" center />,
   },
   {
-    accessorKey: "emwGustWindSpeed",
+    accessorKey: "emw_gust_wind_speed",
     header: ({ column }) => <DataTableColumnHeader column={column} title="EmwGustWindSpeed" center />,
   },
   {
-    accessorKey: "emwWindDirection",
+    accessorKey: "emw_wind_direction",
     header: ({ column }) => <DataTableColumnHeader column={column} title="EmwWindDirection" center />,
   },
   {
-    accessorKey: "emwTemperature",
+    accessorKey: "emw_temperature",
     header: ({ column }) => <DataTableColumnHeader column={column} title="EmwTemperature" center />,
   },
   {
-    accessorKey: "emwHumidity",
+    accessorKey: "emw_humidity",
     header: ({ column }) => <DataTableColumnHeader column={column} title="EmwHumidity" center />,
   },
   {
-    accessorKey: "emwLuminosity",
+    accessorKey: "emw_luminosity",
     header: ({ column }) => <DataTableColumnHeader column={column} title="EmwLuminosity" center />,
   },
   {
-    accessorKey: "emwUv",
+    accessorKey: "emw_uv",
     header: ({ column }) => <DataTableColumnHeader column={column} title="EmwUv" center />,
   },
   {
-    accessorKey: "emwSolarRadiation",
+    accessorKey: "emw_solar_radiation",
     header: ({ column }) => <DataTableColumnHeader column={column} title="EmwSolarRadiation" center />,
   },
   {
-    accessorKey: "emwAtmPres",
+    accessorKey: "emw_atm_pres",
     header: ({ column }) => <DataTableColumnHeader column={column} title="EmwAtmPres" center />,
   },
   {
-    accessorKey: "internalTemperature",
+    accessorKey: "internal_temperature",
     header: ({ column }) => <DataTableColumnHeader column={column} title="InternalTemperature" center />,
   },
   {
-    accessorKey: "internalHumidity",
+    accessorKey: "internal_humidity",
     header: ({ column }) => <DataTableColumnHeader column={column} title="InternalHumidity" center />,
   },
   {
