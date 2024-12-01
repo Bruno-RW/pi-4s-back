@@ -25,7 +25,7 @@ import {
 import { cn } from "@/lib/utils";
 
 const chartConfig = {
-  desktop: {
+  data: {
     label: "Valor",
     color: "hsl(var(--chart-1))",
   },
@@ -76,14 +76,18 @@ const BarChart: React.FC<BarChartProps> = ({
               tickFormatter={labelFormatter}
             />
 
-            <XAxis dataKey={dataKeyY} type="number" hide />
-
-            <ChartTooltip
-              cursor={false}
-              content={<ChartTooltipContent hideLabel />}
+            <XAxis 
+              dataKey={dataKeyY} 
+              type="number" 
+              hide 
             />
 
-            <Bar dataKey={dataKeyY} layout="vertical" radius={5} />
+            {/* <ChartTooltip
+              cursor={false}
+              content={<ChartTooltipContent hideLabel />}
+            /> */}
+
+            <Bar dataKey={dataKeyY} fill="hsl(var(--chart-1))" layout="vertical" radius={5} />
           </BChart>
         </ChartContainer>
       </CardContent>

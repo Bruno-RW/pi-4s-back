@@ -1,7 +1,7 @@
 import BarChart from "@/components/charts/BarChart";
 import ColumnChart from "@/components/charts/ColumnChart";
 
-import db from "@/lib/db";
+interface DataProps { [key: string]: any };
 
 interface ChartProps {
   cardTitle: string;
@@ -9,7 +9,7 @@ interface ChartProps {
 
   chartType: "column" | "bar";
 
-  tableName?: string
+  data: DataProps[];
   xColumn:string;
   yColumn:string;
 
@@ -20,15 +20,13 @@ interface ChartProps {
   labelFormatter?: (value: any) => string;
 };
 
-interface DataProps { [key: string]: any };
-
 const Chart: React.FC<ChartProps> = async({
   cardTitle,
   cardDescription,
 
   chartType,
 
-  tableName="nit2xli",
+  data,
   xColumn,
   yColumn,
 
@@ -39,15 +37,12 @@ const Chart: React.FC<ChartProps> = async({
   className,
 
 }) => {
-  const data: DataProps[] = await (db as any)[tableName].findMany();
-  // const data: DataProps[] = await fetch("/api/data").then(res => res.json());
-
   //TODO: Create data filter
 
-  const chartData = data.map(item => ({
+  const chartData = data ? data.map(item => ({
     x: item[xColumn],
     y: item[yColumn]
-  }));
+  })) : [];
 
   return (
     <div className="flex-1 p-2">

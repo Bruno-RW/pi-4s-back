@@ -4,7 +4,8 @@ import {
   Bar,
   BarChart,
   CartesianGrid,
-  XAxis 
+  XAxis,
+  YAxis
 } from "recharts";
 
 import {
@@ -18,8 +19,6 @@ import {
 import {
   ChartConfig,
   ChartContainer,
-  ChartLegend,
-  ChartLegendContent,
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
@@ -27,7 +26,7 @@ import {
 import { cn } from "@/lib/utils";
 
 const chartConfig = {
-  desktop: {
+  data: {
     label: "Valor",
     color: "hsl(var(--chart-1))",
   },
@@ -63,6 +62,7 @@ const ColumnChart: React.FC<ColumnChartProps> = ({
         <ChartContainer className={cn("min-h-[200px] w-full", className)} config={chartConfig}>
           <BarChart accessibilityLayer data={chartData}>
             <CartesianGrid vertical={false} />
+            
             <XAxis
               dataKey={dataKeyX}
               tickLine={false}
@@ -70,10 +70,22 @@ const ColumnChart: React.FC<ColumnChartProps> = ({
               axisLine={false}
               tickFormatter={labelFormatter}
             />
-            <ChartTooltip content={<ChartTooltipContent />} />
-            <ChartLegend content={<ChartLegendContent />} />
 
-            <Bar dataKey={dataKeyY} radius={4} />
+            <YAxis
+              dataKey={dataKeyY}
+              tickLine={false}
+              tickMargin={10}
+              axisLine={false}
+              tickFormatter={labelFormatter}
+            />
+
+            {/* <ChartTooltip content={<ChartTooltipContent />} /> */}
+
+            <Bar 
+              dataKey={dataKeyY}
+              fill="hsl(var(--chart-1))" 
+              radius={4} 
+            />
           </BarChart>
         </ChartContainer>
       </CardContent>
