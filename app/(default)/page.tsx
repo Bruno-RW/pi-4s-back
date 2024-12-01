@@ -1,11 +1,16 @@
 import db from "@/lib/db";
 import { formatDateTime } from "@/lib/utils";
-import { avgRainLvlByMonth } from "@/lib/chartData";
+import { 
+  avgRainLvlByMonth, 
+  avgTempByMonth,
+  avgHumidByMonth
+} from "@/lib/chartData";
 
 import Chart from "@/components/charts/Chart";
 
 const HomePage = async() => {
-  const data = await db.nit2xli.findMany({take: 100 });
+  // const data = await db.nit2xli.findMany();
+  const data = await db.nit2xli.findMany({ take: 100 });
 
   const formattedData = data.map(item => ({
     ...item,
@@ -13,6 +18,8 @@ const HomePage = async() => {
   }));
 
   const avgRainLvl = avgRainLvlByMonth(formattedData);
+  const avgTemp = avgTempByMonth(formattedData);
+  const avgHumidity = avgHumidByMonth(formattedData);
 
   return (
     <div className="flex flex-col">
@@ -29,18 +36,20 @@ const HomePage = async() => {
         <Chart 
           cardTitle="Temperature"
           cardDescription="Average temperature by month (ºC)"
-          chartType="bar"
-          data={avgRainLvl}
+          chartType="column"
+          data={avgTemp}
           xColumn="time"
-          yColumn="_avg_emw_rain_lvl"
+          yColumn="_avg_emw_temperature"
         />
 
-        {/* <Chart 
+        <Chart 
           cardTitle="Humidity"
-          chartType="bar"
+          cardDescription="Average humidity by month (g/m³)"
+          chartType="column"
+          data={avgHumidity}
           xColumn="time"
-          yColumn="emw_avg_wind_speed"
-        /> */}
+          yColumn="_avg_emw_humidity"
+        />
       </div>
     </div>
   );
