@@ -52,12 +52,6 @@ const LoginForm = () => {
 
     } catch (error) {
       toast.error("Something went wrong", toastStyle);
-
-    } finally {
-      reset();
-      setIsLoading(false);
-
-      if(!isUserError) toast.loading("Redirecting...", {...toastStyle, duration: Infinity});
     }
   };
 
