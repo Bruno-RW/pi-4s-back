@@ -6,19 +6,18 @@ interface DataProps { [key: string]: any };
 interface ChartProps {
   cardTitle: string;
   cardDescription?: string;
-
   chartType: "column" | "bar";
-
   data: DataProps[];
+  
+  className?: string;
   xColumn:string;
   yColumn:string;
-
-  className?: string;
 
   dataKeyX?: string;
   dataKeyY?: string;
   labelFormatter?: (value: any) => string;
 
+  chartLabels?: boolean;
   hideXAxis?: boolean;
   hideYAxis?: boolean;
   chartMargins?: { top?: number; right?: number; bottom?: number; left?: number };
@@ -27,10 +26,10 @@ interface ChartProps {
 const Chart: React.FC<ChartProps> = async({
   cardTitle,
   cardDescription,
-
   chartType,
-
   data,
+
+  className,
   xColumn,
   yColumn,
 
@@ -38,8 +37,7 @@ const Chart: React.FC<ChartProps> = async({
   dataKeyY,
   labelFormatter,
 
-  className,
-
+  chartLabels,
   hideXAxis,
   hideYAxis,
   chartMargins,
@@ -60,10 +58,13 @@ const Chart: React.FC<ChartProps> = async({
             cardTitle={cardTitle}
             cardDescription={cardDescription}
             chartData={chartData}
+
+            className={className}
             dataKeyX={dataKeyX}
             dataKeyY={dataKeyY}
-            className={className}
             labelFormatter={labelFormatter}
+
+            chartLabels={chartLabels}
             hideXAxis={hideXAxis}
             hideYAxis={hideYAxis}
             chartMargins={chartMargins}
@@ -73,9 +74,13 @@ const Chart: React.FC<ChartProps> = async({
             cardTitle={cardTitle}
             cardDescription={cardDescription}
             chartData={chartData}
-            dataKeyX={dataKeyX}
+
             className={className}
+            dataKeyX={dataKeyX}
+            dataKeyY={dataKeyY}
             labelFormatter={labelFormatter}
+
+            chartLabels={chartLabels}
             hideXAxis={hideXAxis}
             hideYAxis={hideYAxis}
             chartMargins={chartMargins}

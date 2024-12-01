@@ -41,6 +41,7 @@ interface ColumnChartProps {
   dataKeyY?: string;
   labelFormatter?: (value: any) => string;
 
+  chartLabels?: boolean;
   hideXAxis?: boolean;
   hideYAxis?: boolean;
   chartMargins?: { top?: number; right?: number; bottom?: number; left?: number };
@@ -56,6 +57,7 @@ const ColumnChart: React.FC<ColumnChartProps> = ({
   dataKeyY="y",
   labelFormatter = (value) => value,
   
+  chartLabels = true,
   hideXAxis = false,
   hideYAxis = false,
   chartMargins = { top: 15, right: 0, bottom: 0, left: 0 }
@@ -95,12 +97,14 @@ const ColumnChart: React.FC<ColumnChartProps> = ({
             />
 
             <Bar dataKey={dataKeyY} fill="hsl(var(--chart-1))" radius={4}>
-              <LabelList
-                position="top"
-                offset={12}
-                className="fill-foreground"
-                fontSize={12}
-              />
+              {chartLabels &&
+                <LabelList
+                  position="top"
+                  offset={12}
+                  className="fill-foreground"
+                  fontSize={12}
+                />
+              }
             </Bar>
           </BarChart>
         </ChartContainer>

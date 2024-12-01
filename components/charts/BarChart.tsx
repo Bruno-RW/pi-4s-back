@@ -41,6 +41,7 @@ interface BarChartProps {
   dataKeyY?: string;
   labelFormatter?: (value: any) => string;
 
+  chartLabels?: boolean;
   hideXAxis?: boolean;
   hideYAxis?: boolean;
   chartMargins?: { top?: number; right?: number; bottom?: number; left?: number };
@@ -56,6 +57,7 @@ const BarChart: React.FC<BarChartProps> = ({
   dataKeyY="y",
   labelFormatter = (value) => value,
 
+  chartLabels = true,
   hideXAxis = false,
   hideYAxis = false,
   chartMargins = { top: 0, right: 25, bottom: 0, left: 0 }
@@ -98,12 +100,14 @@ const BarChart: React.FC<BarChartProps> = ({
             />
 
             <Bar dataKey={dataKeyY} fill="hsl(var(--chart-1))" layout="vertical" radius={5}>
-              <LabelList
-                position="right"
-                offset={8}
-                className="fill-foreground"
-                fontSize={12}
-              />
+              {chartLabels &&
+                <LabelList
+                  position="right"
+                  offset={8}
+                  className="fill-foreground"
+                  fontSize={12}
+                />
+              }
             </Bar>
           </BChart>
         </ChartContainer>
