@@ -4,7 +4,7 @@ import {
   avgRainLvlByMonth, 
   avgTempByMonth,
   avgHumidByMonth
-} from "@/lib/chartData";
+} from "@/lib/charts/chartData";
 
 import Chart from "@/components/charts/Chart";
 
