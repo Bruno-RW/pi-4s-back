@@ -4,9 +4,20 @@ import { formatDateTime } from "@/lib/utils";
 import GeneralData from "@/components/tables/general/GeneralData";
 import { GeneralColumnsProps } from "@/components/tables/general/GeneralColumns";
 
-
 const GeneralPage = async () => {
-  const general = await db.nit2xli.findMany();
+  const sixMonthsAgo = new Date();
+  sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
+
+  const general = await db.nit2xli.findMany({
+    where: {
+      time: {
+        gte: sixMonthsAgo
+      }
+    },
+    orderBy: {
+      time: 'desc'
+    }
+  });
 
   const formattedGeneral: GeneralColumnsProps[] = general.map(general => ({
     deduplicationId: general.deduplicationId,
