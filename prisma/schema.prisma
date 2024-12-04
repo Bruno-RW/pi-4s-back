@@ -38,3 +38,17 @@ model User {
   createdAt DateTime  @default(now())
   updatedAt DateTime? @updatedAt
 }
+
+model k72623_lo {
+  deduplicationId String   @id @default(uuid()) @db.Uuid
+  devEui          String?  @db.Char(16)
+  deviceName      String?  @db.VarChar(100)
+  noise           Float?   @db.Real
+  temperature     Float?   @db.Real
+  voltage         Float?   @db.Real
+  humidity        Float?   @db.Real
+  pm2_5           Float?   @db.Real
+  time            DateTime @db.Timestamptz(6)
+  deviceInfo      Json     @db.Json
+  rxInfo          Json     @db.Json
+}
