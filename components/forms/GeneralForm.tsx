@@ -104,8 +104,20 @@ const GeneralForm: React.FC<GeneralFormProps> = ({ initialData }) => {
         </div>
 
         <form className="flex flex-col w-full gap-y-3" onSubmit={handleSubmit(onSubmit)}>
+
           <div className="flex gap-x-3">
-            <div className="flex flex-col gap-y-1 w-full">
+            <div className="flex flex-col gap-y-1 w-1/2">
+              <Input endContent={<LuUser {...iconStyle} />}
+                {...register("devEui")}
+                defaultValue={initialData?.devEui || ""}
+                label="Device EUI"
+                variant="bordered"
+                autoComplete="new-password"
+              />
+              {errors.devEui && <ErrorMessage message={errors.devEui.message} />}
+            </div>
+
+            <div className="flex flex-col gap-y-1 w-1/2">
               <Input endContent={<LuUser {...iconStyle} />}
                 {...register("deviceName")}
                 defaultValue={initialData?.deviceName || ""}
@@ -118,6 +130,180 @@ const GeneralForm: React.FC<GeneralFormProps> = ({ initialData }) => {
               {errors.deviceName && <ErrorMessage message={errors.deviceName.message} />}
             </div>
           </div>
+
+
+          <div className="flex gap-x-3">
+            <div className="flex flex-col gap-y-1 w-1/3">
+              <Input endContent={<LuUser {...iconStyle} />}
+                {...register("emw_rain_lvl")}
+                type="number"
+                defaultValue={initialData?.emw_rain_lvl?.toString() || ""}
+                placeholder="0.0"
+                label="Rain Level"
+                variant="bordered"
+                autoComplete="new-password"
+              />
+              {errors.emw_rain_lvl && <ErrorMessage message={errors.emw_rain_lvl.message} />}
+            </div>
+
+            <div className="flex flex-col gap-y-1 w-1/3">
+              <Input endContent={<LuUser {...iconStyle} />}
+                {...register("emw_temperature")}
+                type="number"
+                defaultValue={initialData?.emw_temperature?.toString() || ""}
+                placeholder="0.0"
+                label="Temperature"
+                variant="bordered"
+                autoComplete="new-password"
+              />
+              {errors.emw_temperature && <ErrorMessage message={errors.emw_temperature.message} />}
+            </div>
+
+            <div className="flex flex-col gap-y-1 w-1/3">
+              <Input endContent={<LuUser {...iconStyle} />}
+                {...register("emw_humidity")}
+                type="number"
+                defaultValue={initialData?.emw_humidity?.toString() || ""}
+                placeholder="0.0"
+                label="Humidity"
+                variant="bordered"
+                autoComplete="new-password"
+              />
+              {errors.emw_humidity && <ErrorMessage message={errors.emw_humidity.message} />}
+            </div>
+          </div>
+
+
+          <div className="flex gap-x-3">
+            <div className="flex flex-col gap-y-1 w-1/3">
+              <Input endContent={<LuUser {...iconStyle} />}
+                {...register("emw_avg_wind_speed")}
+                type="number"
+                defaultValue={initialData?.emw_avg_wind_speed?.toString() || ""}
+                placeholder="0"
+                label="Average Wind Speed"
+                variant="bordered"
+                autoComplete="new-password"
+                isRequired
+              />
+              {errors.emw_avg_wind_speed && <ErrorMessage message={errors.emw_avg_wind_speed.message} />}
+            </div>
+
+            <div className="flex flex-col gap-y-1 w-1/3">
+              <Input endContent={<LuUser {...iconStyle} />}
+                {...register("emw_gust_wind_speed")}
+                type="number"
+                defaultValue={initialData?.emw_gust_wind_speed?.toString() || ""}
+                placeholder="0"
+                label="Gust Wind Speed"
+                variant="bordered"
+                autoComplete="new-password"
+                isRequired
+              />
+              {errors.emw_gust_wind_speed && <ErrorMessage message={errors.emw_gust_wind_speed.message} />}
+            </div>
+
+            <div className="flex flex-col gap-y-1 w-1/3">
+              <Input endContent={<LuUser {...iconStyle} />}
+                {...register("emw_wind_direction")}
+                type="number"
+                defaultValue={initialData?.emw_wind_direction?.toString() || ""}
+                placeholder="0"
+                label="Wind Direction"
+                variant="bordered"
+                autoComplete="new-password"
+                isRequired
+              />
+              {errors.emw_wind_direction && <ErrorMessage message={errors.emw_wind_direction.message} />}
+            </div>
+          </div>
+
+
+          <div className="flex gap-x-3">
+            <div className="flex flex-col gap-y-1 w-1/3">
+              <Input endContent={<LuUser {...iconStyle} />}
+                {...register("emw_luminosity")}
+                type="number"
+                defaultValue={initialData?.emw_luminosity?.toString() || ""}
+                placeholder="0"
+                label="Luminosity"
+                variant="bordered"
+                autoComplete="new-password"
+                isRequired
+              />
+              {errors.emw_luminosity && <ErrorMessage message={errors.emw_luminosity.message} />}
+            </div>
+
+            <div className="flex flex-col gap-y-1 w-1/3">
+              <Input endContent={<LuUser {...iconStyle} />}
+                {...register("emw_uv")}
+                type="number"
+                defaultValue={initialData?.emw_uv?.toString() || ""}
+                placeholder="0.0"
+                label="UV"
+                variant="bordered"
+                autoComplete="new-password"
+                isRequired
+              />
+              {errors.emw_uv && <ErrorMessage message={errors.emw_uv.message} />}
+            </div>
+
+            <div className="flex flex-col gap-y-1 w-1/3">
+              <Input endContent={<LuUser {...iconStyle} />}
+                {...register("emw_solar_radiation")}
+                type="number"
+                defaultValue={initialData?.emw_solar_radiation?.toString() || ""}
+                placeholder="0.0"
+                label="Solar Radiation"
+                variant="bordered"
+                autoComplete="new-password"
+                isRequired
+              />
+              {errors.emw_solar_radiation && <ErrorMessage message={errors.emw_solar_radiation.message} />}
+            </div>
+          </div>  
+
+
+          <div className="flex gap-x-3">
+            <div className="flex flex-col gap-y-1 w-1/3">
+              <Input endContent={<LuUser {...iconStyle} />}
+                {...register("emw_atm_pres")}
+                type="number"
+                defaultValue={initialData?.emw_atm_pres?.toString() || "0"}
+                label="Atmospheric Pressure"
+                variant="bordered"
+                autoComplete="new-password"
+                isRequired
+              />
+              {errors.emw_atm_pres && <ErrorMessage message={errors.emw_atm_pres.message} />}
+            </div>
+
+            <div className="flex flex-col gap-y-1 w-1/3">
+              <Input endContent={<LuUser {...iconStyle} />}
+                {...register("internal_temperature")}
+                type="number"
+                defaultValue={initialData?.internal_temperature?.toString() || "0"}
+                label="Internal Temperature"
+                variant="bordered"
+                autoComplete="new-password"
+                isRequired
+              />
+              {errors.internal_temperature && <ErrorMessage message={errors.internal_temperature.message} />}
+            </div>
+
+            <div className="flex flex-col gap-y-1 w-1/3">
+              <Input endContent={<LuUser {...iconStyle} />}
+                {...register("internal_humidity")}
+                type="number"
+                defaultValue={initialData?.internal_humidity?.toString() || "0"}
+                label="Internal Humidity"
+                variant="bordered"
+                autoComplete="new-password"
+                isRequired
+              />
+              {errors.internal_humidity && <ErrorMessage message={errors.internal_humidity.message} />}
+            </div>
+          </div> 
 
           <Button className={cn("w-1/4", isLoading && "bg-blue-600/70 dark:bg-blue-500/40")} type="submit" variant="blue" isLoading={isLoading}>{submitLabel}</Button>
         </form>
