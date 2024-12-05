@@ -1,7 +1,6 @@
 "use client";
 
 import { Input } from "@nextui-org/input";
-import { Select, SelectItem } from "@nextui-org/select";
 import { useParams, useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -9,7 +8,12 @@ import { toast } from "react-hot-toast";
 import { useState } from "react";
 import axios from "axios";
 
-import { LuLock, LuMail, LuTrash, LuUnlock, LuUser } from "react-icons/lu";
+import { LuTrash, LuThermometerSun, LuVolume2 } from "react-icons/lu";
+import { IoBarcodeOutline } from "react-icons/io5";
+import { CgRename } from "react-icons/cg";
+import { SiRainmeter } from "react-icons/si";
+import { BsLightningCharge } from "react-icons/bs";
+import { WiSandstorm } from "react-icons/wi";
 
 import { k72623_lo } from "@prisma/client";
 
@@ -107,7 +111,7 @@ const SecondaryForm: React.FC<SecondaryFormProps> = ({ initialData }) => {
 
           <div className="flex gap-x-3">
             <div className="flex flex-col gap-y-1 w-1/2">
-              <Input endContent={<LuUser {...iconStyle} />}
+              <Input endContent={<IoBarcodeOutline {...iconStyle} />}
                 {...register("devEui")}
                 defaultValue={initialData?.devEui || ""}
                 label="Device EUI"
@@ -118,7 +122,7 @@ const SecondaryForm: React.FC<SecondaryFormProps> = ({ initialData }) => {
             </div>
 
             <div className="flex flex-col gap-y-1 w-1/2">
-              <Input endContent={<LuUser {...iconStyle} />}
+              <Input endContent={<CgRename {...iconStyle} />}
                 {...register("deviceName")}
                 defaultValue={initialData?.deviceName || ""}
                 label="Device name"
@@ -134,12 +138,12 @@ const SecondaryForm: React.FC<SecondaryFormProps> = ({ initialData }) => {
 
           <div className="flex gap-x-3">
             <div className="flex flex-col gap-y-1 w-1/3">
-              <Input endContent={<LuUser {...iconStyle} />}
+              <Input endContent={<LuVolume2 {...iconStyle} />}
                 {...register("noise")}
                 type="number"
                 defaultValue={initialData?.noise?.toString() || ""}
                 placeholder="0.0"
-                label="Rain Level"
+                label="Noise"
                 variant="bordered"
                 autoComplete="new-password"
               />
@@ -147,7 +151,7 @@ const SecondaryForm: React.FC<SecondaryFormProps> = ({ initialData }) => {
             </div>
 
             <div className="flex flex-col gap-y-1 w-1/3">
-              <Input endContent={<LuUser {...iconStyle} />}
+              <Input endContent={<LuThermometerSun {...iconStyle} />}
                 {...register("temperature")}
                 type="number"
                 defaultValue={initialData?.temperature?.toString() || ""}
@@ -160,12 +164,12 @@ const SecondaryForm: React.FC<SecondaryFormProps> = ({ initialData }) => {
             </div>
 
             <div className="flex flex-col gap-y-1 w-1/3">
-              <Input endContent={<LuUser {...iconStyle} />}
+              <Input endContent={<BsLightningCharge {...iconStyle} />}
                 {...register("voltage")}
                 type="number"
                 defaultValue={initialData?.voltage?.toString() || ""}
                 placeholder="0.0"
-                label="Humidity"
+                label="Voltage"
                 variant="bordered"
                 autoComplete="new-password"
               />
@@ -176,12 +180,12 @@ const SecondaryForm: React.FC<SecondaryFormProps> = ({ initialData }) => {
 
           <div className="flex gap-x-3">
             <div className="flex flex-col gap-y-1 w-1/2">
-              <Input endContent={<LuUser {...iconStyle} />}
+              <Input endContent={<SiRainmeter {...iconStyle} />}
                 {...register("humidity")}
                 type="number"
                 defaultValue={initialData?.humidity?.toString() || ""}
                 placeholder="0"
-                label="Average Wind Speed"
+                label="Humidity"
                 variant="bordered"
                 autoComplete="new-password"
                 isRequired
@@ -190,12 +194,12 @@ const SecondaryForm: React.FC<SecondaryFormProps> = ({ initialData }) => {
             </div>
 
             <div className="flex flex-col gap-y-1 w-1/2">
-              <Input endContent={<LuUser {...iconStyle} />}
+              <Input endContent={<WiSandstorm {...iconStyle} />}
                 {...register("pm2_5")}
                 type="number"
                 defaultValue={initialData?.pm2_5?.toString() || ""}
                 placeholder="0"
-                label="Gust Wind Speed"
+                label="PM2.5"
                 variant="bordered"
                 autoComplete="new-password"
                 isRequired

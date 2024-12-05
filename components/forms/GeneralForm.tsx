@@ -1,7 +1,6 @@
 "use client";
 
 import { Input } from "@nextui-org/input";
-import { Select, SelectItem } from "@nextui-org/select";
 import { useParams, useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -9,7 +8,21 @@ import { toast } from "react-hot-toast";
 import { useState } from "react";
 import axios from "axios";
 
-import { LuLock, LuMail, LuTrash, LuUnlock, LuUser } from "react-icons/lu";
+import {
+  LuTrash,
+  LuThermometerSun,
+  LuCloudRainWind,
+  LuWind,
+  LuSun,
+  LuWaves
+} from "react-icons/lu";
+import { IoBarcodeOutline } from "react-icons/io5";
+import { CgRename } from "react-icons/cg";
+import { SiRainmeter } from "react-icons/si";
+import { WiCloudyGusts } from "react-icons/wi";
+import { IoCompassOutline } from "react-icons/io5";
+import { TbUvIndex } from "react-icons/tb";
+import { TbGauge } from "react-icons/tb";
 
 import { nit2xli } from "@prisma/client";
 
@@ -107,7 +120,7 @@ const GeneralForm: React.FC<GeneralFormProps> = ({ initialData }) => {
 
           <div className="flex gap-x-3">
             <div className="flex flex-col gap-y-1 w-1/2">
-              <Input endContent={<LuUser {...iconStyle} />}
+              <Input endContent={<IoBarcodeOutline {...iconStyle} />}
                 {...register("devEui")}
                 defaultValue={initialData?.devEui || ""}
                 label="Device EUI"
@@ -118,7 +131,7 @@ const GeneralForm: React.FC<GeneralFormProps> = ({ initialData }) => {
             </div>
 
             <div className="flex flex-col gap-y-1 w-1/2">
-              <Input endContent={<LuUser {...iconStyle} />}
+              <Input endContent={<CgRename {...iconStyle} />}
                 {...register("deviceName")}
                 defaultValue={initialData?.deviceName || ""}
                 label="Device name"
@@ -134,7 +147,7 @@ const GeneralForm: React.FC<GeneralFormProps> = ({ initialData }) => {
 
           <div className="flex gap-x-3">
             <div className="flex flex-col gap-y-1 w-1/3">
-              <Input endContent={<LuUser {...iconStyle} />}
+              <Input endContent={<LuCloudRainWind {...iconStyle} />}
                 {...register("emw_rain_lvl")}
                 type="number"
                 defaultValue={initialData?.emw_rain_lvl?.toString() || ""}
@@ -147,7 +160,7 @@ const GeneralForm: React.FC<GeneralFormProps> = ({ initialData }) => {
             </div>
 
             <div className="flex flex-col gap-y-1 w-1/3">
-              <Input endContent={<LuUser {...iconStyle} />}
+              <Input endContent={<LuThermometerSun {...iconStyle} />}
                 {...register("emw_temperature")}
                 type="number"
                 defaultValue={initialData?.emw_temperature?.toString() || ""}
@@ -160,7 +173,7 @@ const GeneralForm: React.FC<GeneralFormProps> = ({ initialData }) => {
             </div>
 
             <div className="flex flex-col gap-y-1 w-1/3">
-              <Input endContent={<LuUser {...iconStyle} />}
+              <Input endContent={<SiRainmeter {...iconStyle} />}
                 {...register("emw_humidity")}
                 type="number"
                 defaultValue={initialData?.emw_humidity?.toString() || ""}
@@ -176,7 +189,7 @@ const GeneralForm: React.FC<GeneralFormProps> = ({ initialData }) => {
 
           <div className="flex gap-x-3">
             <div className="flex flex-col gap-y-1 w-1/3">
-              <Input endContent={<LuUser {...iconStyle} />}
+              <Input endContent={<WiCloudyGusts {...iconStyle} />}
                 {...register("emw_avg_wind_speed")}
                 type="number"
                 defaultValue={initialData?.emw_avg_wind_speed?.toString() || ""}
@@ -190,7 +203,7 @@ const GeneralForm: React.FC<GeneralFormProps> = ({ initialData }) => {
             </div>
 
             <div className="flex flex-col gap-y-1 w-1/3">
-              <Input endContent={<LuUser {...iconStyle} />}
+              <Input endContent={<LuWind {...iconStyle} />}
                 {...register("emw_gust_wind_speed")}
                 type="number"
                 defaultValue={initialData?.emw_gust_wind_speed?.toString() || ""}
@@ -204,7 +217,7 @@ const GeneralForm: React.FC<GeneralFormProps> = ({ initialData }) => {
             </div>
 
             <div className="flex flex-col gap-y-1 w-1/3">
-              <Input endContent={<LuUser {...iconStyle} />}
+              <Input endContent={<IoCompassOutline {...iconStyle} />}
                 {...register("emw_wind_direction")}
                 type="number"
                 defaultValue={initialData?.emw_wind_direction?.toString() || ""}
@@ -221,7 +234,7 @@ const GeneralForm: React.FC<GeneralFormProps> = ({ initialData }) => {
 
           <div className="flex gap-x-3">
             <div className="flex flex-col gap-y-1 w-1/3">
-              <Input endContent={<LuUser {...iconStyle} />}
+              <Input endContent={<LuSun {...iconStyle} />}
                 {...register("emw_luminosity")}
                 type="number"
                 defaultValue={initialData?.emw_luminosity?.toString() || ""}
@@ -235,7 +248,7 @@ const GeneralForm: React.FC<GeneralFormProps> = ({ initialData }) => {
             </div>
 
             <div className="flex flex-col gap-y-1 w-1/3">
-              <Input endContent={<LuUser {...iconStyle} />}
+              <Input endContent={<TbUvIndex {...iconStyle} />}
                 {...register("emw_uv")}
                 type="number"
                 defaultValue={initialData?.emw_uv?.toString() || ""}
@@ -249,7 +262,7 @@ const GeneralForm: React.FC<GeneralFormProps> = ({ initialData }) => {
             </div>
 
             <div className="flex flex-col gap-y-1 w-1/3">
-              <Input endContent={<LuUser {...iconStyle} />}
+              <Input endContent={<LuWaves {...iconStyle} />}
                 {...register("emw_solar_radiation")}
                 type="number"
                 defaultValue={initialData?.emw_solar_radiation?.toString() || ""}
@@ -266,10 +279,11 @@ const GeneralForm: React.FC<GeneralFormProps> = ({ initialData }) => {
 
           <div className="flex gap-x-3">
             <div className="flex flex-col gap-y-1 w-1/3">
-              <Input endContent={<LuUser {...iconStyle} />}
+              <Input endContent={<TbGauge {...iconStyle} />}
                 {...register("emw_atm_pres")}
                 type="number"
-                defaultValue={initialData?.emw_atm_pres?.toString() || "0"}
+                defaultValue={initialData?.emw_atm_pres?.toString() || ""}
+                placeholder="0.0"
                 label="Atmospheric Pressure"
                 variant="bordered"
                 autoComplete="new-password"
@@ -279,10 +293,11 @@ const GeneralForm: React.FC<GeneralFormProps> = ({ initialData }) => {
             </div>
 
             <div className="flex flex-col gap-y-1 w-1/3">
-              <Input endContent={<LuUser {...iconStyle} />}
+              <Input endContent={<LuThermometerSun {...iconStyle} />}
                 {...register("internal_temperature")}
                 type="number"
-                defaultValue={initialData?.internal_temperature?.toString() || "0"}
+                defaultValue={initialData?.internal_temperature?.toString() || ""}
+                placeholder="0.0"
                 label="Internal Temperature"
                 variant="bordered"
                 autoComplete="new-password"
@@ -292,10 +307,11 @@ const GeneralForm: React.FC<GeneralFormProps> = ({ initialData }) => {
             </div>
 
             <div className="flex flex-col gap-y-1 w-1/3">
-              <Input endContent={<LuUser {...iconStyle} />}
+              <Input endContent={<SiRainmeter {...iconStyle} />}
                 {...register("internal_humidity")}
                 type="number"
-                defaultValue={initialData?.internal_humidity?.toString() || "0"}
+                defaultValue={initialData?.internal_humidity?.toString() || ""}
+                placeholder="0.0"
                 label="Internal Humidity"
                 variant="bordered"
                 autoComplete="new-password"
