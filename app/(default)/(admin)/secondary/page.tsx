@@ -30,7 +30,7 @@ const SecondaryPage = async () => {
     humidity: secondary.humidity,
     pm2_5: secondary.pm2_5,
 
-    time: formatDateTime(secondary.time)
+    time: formatDateTime(secondary.time, true, {hour: "2-digit", minute: "2-digit", hour12: false})
   }));
 
   return <SecondaryData data={formattedSecondary} />;

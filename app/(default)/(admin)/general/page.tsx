@@ -39,7 +39,7 @@ const GeneralPage = async () => {
     internal_temperature: general.internal_temperature,
     internal_humidity: general.internal_humidity,
 
-    time: formatDateTime(general.time)
+    time: formatDateTime(general.time, true, {hour: "2-digit", minute: "2-digit", hour12: false})
   }));
 
   return <GeneralData data={formattedGeneral} />;

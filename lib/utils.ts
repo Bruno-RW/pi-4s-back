@@ -40,12 +40,12 @@ export function formatDateTime(
   if (!date) return "";
 
   const dateOptions: Intl.DateTimeFormatOptions = {
-    day: "numeric",
-    month: "numeric",
+    day: "2-digit",
+    month: "2-digit",
     year: "numeric",
   };
 
   const formatOptions = defaultOptions ? { ...dateOptions, ...options } : options;
 
-  return new Intl.DateTimeFormat("en-US", formatOptions).format(date);
+  return new Intl.DateTimeFormat("pt-BR", formatOptions).format(date);
 };
