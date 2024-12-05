@@ -53,6 +53,21 @@ export const generalFormSchema = z.object({
 });
 export type generalFormData = z.infer<typeof generalFormSchema>;
 
+export const secondaryFormSchema = z.object({
+  deduplicationId:  z.string().uuid(), // Automatically added
+  devEui:           z.string().max(16).nullable(),
+  deviceName:       z.string().max(100).nullable(),
+  noise:            z.number().nullable(),
+  temperature:      z.number().nullable(),
+  voltage:          z.number().nullable(),
+  humidity:         z.number().nullable(),
+  pm2_5:            z.number().nullable(),
+  time:             z.date(), // Automatically added
+  deviceInfo:       z.any().nullable(), // JSON
+  rxInfo:           z.any().nullable(), // JSON
+});
+export type secondaryFormData = z.infer<typeof secondaryFormSchema>;
+
 
 
 //! ---------- MASTER USER ---------- !//

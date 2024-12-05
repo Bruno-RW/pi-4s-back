@@ -32,6 +32,13 @@ export const navbarInfo = [
     type: "A",
     icon: MdOutlineGraphicEq,
   },
+
+  {
+    label: "Secondary",
+    url: "/secondary",
+    type: "A",
+    icon: MdOutlineGraphicEq,
+  },
   // {
   //   label: "Rain",
   //   url: "/rain",

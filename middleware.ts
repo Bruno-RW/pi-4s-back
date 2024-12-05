@@ -11,6 +11,7 @@ const routePermissions: RoutePermissions = {
 
   //? API
   "/api/general": "A",
+  "/api/secondary": "A",
   // "/api/rain": "A",
   // "/api/wind": "A",
   // "/api/temperature": "A",
@@ -21,6 +22,7 @@ const routePermissions: RoutePermissions = {
 
   //? Pages
   "/general": "A",
+  "/secondary": "A",
   // "/rain": "A",
   // "/wind": "A",
   // "/temperature": "A",
