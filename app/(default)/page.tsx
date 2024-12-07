@@ -97,12 +97,12 @@ const HomePage = async() => {
 
         <div className="flex flex-row">
           <Card classCard="w-1/2"
-            cardTitle="Qtd. dispositivos"
+            cardTitle="Quantidade dispositivos"
             cardContent={commonTotalDevices.toString()}
           />
 
           <Card classCard="w-1/2"
-            cardTitle="Qtd. dados totais"
+            cardTitle="Quantidade dados totais"
             cardContent={formatNumber(commonTotalRows)}
           />
         </div>
