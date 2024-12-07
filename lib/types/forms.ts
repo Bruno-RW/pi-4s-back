@@ -13,18 +13,18 @@ export const loginFormSchema = z.object({
   email: z
     .string()
     .trim()
-    .min(1, "E-mail is required")
-    .min(10, "E-mail must have atleast 10 characters")
-    .max(70, "E-mail must be shorter than 70 characters")
-    .email("Invalid e-mail")
+    .min(1, "E-mail é necessário")
+    .min(10, "E-mail deve conter pelo menos 10 caracteres")
+    .max(70, "E-mail deve ser menor que 70 caracteres")
+    .email("E-mail inválido")
     .toLowerCase(),
 
   password: z
     .string()
     .trim()
-    .min(1, "Password is required")
-    .min(8, "Password must have atleast 8 characters")
-    .max(30, "Password must be shorter than 30 characters"),
+    .min(1, "Senha é necessária")
+    .min(8, "Senha deve conter pelo menos 8 caracteres")
+    .max(30, "Senha deve ser menor que 30 caracteres"),
 });
 export type loginFormData = z.infer<typeof loginFormSchema>;
 
@@ -114,7 +114,7 @@ export const userFormSchema = z.object({
     .max(30, "Password confirmation must be shorter than 30 characters")
 })
   .refine(({ password, confirmPassword }) => password === confirmPassword, {
-  message: "Password does not match",
+  message: "Senha não corresponde",
   path: ["confirmPassword"]
 });
 export type userFormData = z.infer<typeof userFormSchema>;
@@ -168,6 +168,6 @@ export const editUserFormSchema = z.object({
 
     return (password === confirmPassword);
   }, {
-  message: "Password does not match",
+  message: "Senha não corresponde",
   path: ["confirmPassword"]
 });
