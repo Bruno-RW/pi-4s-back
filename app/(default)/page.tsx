@@ -132,6 +132,7 @@ const HomePage = async() => {
               deviceName: { label: "deviceName" },
               color: { label: "fill" }
             }}
+            classTooltip="w-52"
           />
         </div>
       </section>

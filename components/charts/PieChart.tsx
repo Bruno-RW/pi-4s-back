@@ -29,6 +29,7 @@ interface PieChartProps {
   chartData: any[];
 
   className?: string;
+  classTooltip?: string;
   chartDataKey?: string;
   labelDataKey?: string;
   nameKey?: string;
@@ -42,6 +43,7 @@ const PieChart: React.FC<PieChartProps> = ({
   chartData,
 
   className,
+  classTooltip,
   nameKey="Valor",
   chartDataKey="Numero",
   labelDataKey="Valor",
@@ -66,7 +68,7 @@ const PieChart: React.FC<PieChartProps> = ({
           <PChart>
             <ChartTooltip
               content={
-                <ChartTooltipContent nameKey={chartDataKey} hideLabel className="w-40" />
+                <ChartTooltipContent nameKey={chartDataKey} hideLabel className={cn("w-40", classTooltip)} />
               }
             />
 

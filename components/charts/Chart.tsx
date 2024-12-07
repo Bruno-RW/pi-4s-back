@@ -11,6 +11,7 @@ interface ChartProps {
   data: DataProps[];
   
   className?: string;
+  classTooltip?: string;
   xColumn?:string;
   yColumn?:string;
 
@@ -37,6 +38,7 @@ const Chart: React.FC<ChartProps> = async({
   data,
 
   className,
+  classTooltip,
   xColumn,
   yColumn,
 
@@ -111,6 +113,7 @@ const Chart: React.FC<ChartProps> = async({
                 chartData={data}
 
                 className={className}
+                classTooltip={classTooltip}
                 nameKey={nameKey}
                 chartDataKey={chartDataKey}
                 labelDataKey={labelDataKey}
