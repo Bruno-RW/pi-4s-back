@@ -41,8 +41,8 @@ const getColorForDevice = (deviceName: string) => {
 
 const HomePage = async() => {
   //? ------ Get data from database ------ ?//
-  const generalData = await db.nit2xli.findMany();
-  const secondaryData = await db.k72623_lo.findMany();
+  const generalData = await db.nit2xli.findMany({ take: 10});
+  const secondaryData = await db.k72623_lo.findMany( {take: 10});
 
   const generalFormattedData = generalData.map(item => ({
     ...item,
@@ -96,12 +96,12 @@ const HomePage = async() => {
         </div>
 
         <div className="flex flex-row">
-          <Card classCard="w-1/2"
+          <Card classCard="w-1/2 mb-0"
             cardTitle="Quantidade dispositivos"
             cardContent={commonTotalDevices.toString()}
           />
 
-          <Card classCard="w-1/2"
+          <Card classCard="w-1/2 mb-0"
             cardTitle="Quantidade dados totais"
             cardContent={formatNumber(commonTotalRows)}
           />
@@ -119,6 +119,7 @@ const HomePage = async() => {
               deviceName: { label: "deviceName" }, 
               fill: { label: "fill" },
             }}
+            classCard="ml-0"
           />
 
           <Chart 
@@ -132,6 +133,7 @@ const HomePage = async() => {
               deviceName: { label: "deviceName" },
               color: { label: "fill" }
             }}
+            classCard="mx-0"
             classTooltip="w-52"
           />
         </div>

@@ -10,8 +10,10 @@ interface ChartProps {
   chartType: "column" | "bar" | "pie"; // Update this line
   data: DataProps[];
   
-  className?: string;
+  classCard?: string;
+  classChart?: string;
   classTooltip?: string;
+
   xColumn?:string;
   yColumn?:string;
 
@@ -37,8 +39,10 @@ const Chart: React.FC<ChartProps> = async({
   chartType,
   data,
 
-  className,
+  classCard,
+  classChart,
   classTooltip,
+  
   xColumn,
   yColumn,
 
@@ -76,7 +80,9 @@ const Chart: React.FC<ChartProps> = async({
                 cardDescription={cardDescription}
                 chartData={data}
 
-                className={className}
+                classCard={classCard}
+                classChart={classChart}
+
                 dataKeyX={dataKeyX}
                 dataKeyY={dataKeyY}
                 labelFormatter={labelFormatter}
@@ -94,7 +100,9 @@ const Chart: React.FC<ChartProps> = async({
                 cardDescription={cardDescription}
                 chartData={data}
 
-                className={className}
+                classCard={classCard}
+                classChart={classChart}
+
                 dataKeyX={dataKeyX}
                 dataKeyY={dataKeyY}
                 labelFormatter={labelFormatter}
@@ -112,7 +120,9 @@ const Chart: React.FC<ChartProps> = async({
                 cardDescription={cardDescription}
                 chartData={data}
 
-                className={className}
+                classCard={classCard}
+                classChart={classChart}
+                
                 classTooltip={classTooltip}
                 nameKey={nameKey}
                 chartDataKey={chartDataKey}

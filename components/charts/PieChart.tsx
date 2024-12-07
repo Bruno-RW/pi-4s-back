@@ -28,7 +28,8 @@ interface PieChartProps {
   cardDescription?: string;
   chartData: any[];
 
-  className?: string;
+  classCard?: string;
+  classChart?: string;
   classTooltip?: string;
   chartDataKey?: string;
   labelDataKey?: string;
@@ -42,16 +43,17 @@ const PieChart: React.FC<PieChartProps> = ({
   cardDescription,
   chartData,
 
-  className,
+  classCard,
+  classChart,
   classTooltip,
+  
   nameKey="Valor",
   chartDataKey="Numero",
-  labelDataKey="Valor",
 
   chartConfig,
 }) => {
   return (
-    <Card className="flex flex-col m-2 w-full">
+    <Card className={cn("flex flex-col m-2 w-full", classCard)}>
       <CardHeader>
         <CardTitle>{cardTitle}</CardTitle>
         {cardDescription && <CardDescription>{cardDescription}</CardDescription>}
@@ -62,7 +64,7 @@ const PieChart: React.FC<PieChartProps> = ({
           config={chartConfig}
           className={cn(
             "mx-auto aspect-square min-h-[200px] w-full [&_.recharts-text]:fill-background", 
-            className
+            classChart
           )}
         >
           <PChart>

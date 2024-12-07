@@ -36,7 +36,8 @@ interface ColumnChartProps {
   cardDescription?: string;
   chartData: any[];
 
-  className?: string;
+  classCard?: string;
+  classChart?: string;
   dataKeyX?: string;
   dataKeyY?: string;
   labelFormatter?: (value: any) => string;
@@ -52,7 +53,8 @@ const ColumnChart: React.FC<ColumnChartProps> = ({
   cardDescription,
   chartData,
 
-  className,
+  classCard,
+  classChart,
   dataKeyX="x",
   dataKeyY="y",
   labelFormatter = (value) => value,
@@ -63,14 +65,14 @@ const ColumnChart: React.FC<ColumnChartProps> = ({
   chartMargins = { top: 15, right: 0, bottom: 0, left: 0 }
 }) => {
   return (
-    <Card>
+    <Card className={cn(classCard)}>
       <CardHeader>
         <CardTitle>{cardTitle}</CardTitle>
         {cardDescription && <CardDescription>{cardDescription}</CardDescription>}
       </CardHeader>
 
       <CardContent>
-        <ChartContainer className={cn("min-h-[200px] w-full", className)} config={chartConfig}>
+        <ChartContainer className={cn("min-h-[200px] w-full", classChart)} config={chartConfig}>
           <BarChart 
             accessibilityLayer
             data={chartData}
