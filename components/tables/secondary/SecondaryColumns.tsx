@@ -28,14 +28,14 @@ export const SecondaryColumns: ColumnDef<SecondaryColumnsProps>[] = [
     id: "select",
     header: ({ table }) => (
       <Checkbox
-        aria-label="Select all"
+        aria-label="Selecionar todos"
         checked={table.getIsAllPageRowsSelected()}
         onCheckedChange={value => table.toggleAllPageRowsSelected(!!value)}
       />
     ),
     cell: ({ row }) => (
       <Checkbox
-        aria-label="Select row"
+        aria-label="Selecionar linhas"
         checked={row.getIsSelected()}
         onCheckedChange={value => row.toggleSelected(!!value)}
       />
@@ -87,7 +87,7 @@ export const SecondaryColumns: ColumnDef<SecondaryColumnsProps>[] = [
 
   {
     id: "actions",
-    header: () => centered("Actions"),
+    header: () => centered("Ações"),
     cell: ({ row }) => <SecondaryAction data={row.original} />,
   },
 ];

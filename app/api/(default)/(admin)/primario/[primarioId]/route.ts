@@ -5,12 +5,12 @@ import { generalFormSchema } from "@/lib/types/forms";
 
 export async function GET(
   req: Request,
-  {params}: {params: {generalId: string}}
+  {params}: {params: {primarioId: string}}
 ) {
   try {
-    if (!String(params.generalId)) return new NextResponse("General UUID must be a string", { status: 400 });
+    if (!String(params.primarioId)) return new NextResponse("General UUID must be a string", { status: 400 });
     
-    const general = await db.nit2xli.findUnique({ where: {deduplicationId: params.generalId} });
+    const general = await db.nit2xli.findUnique({ where: {deduplicationId: params.primarioId} });
 
     if (!general) return NextResponse.json("Invalid general UUID", { status: 400 });
 
@@ -24,13 +24,13 @@ export async function GET(
 
 export async function PATCH(
   req: Request,
-  {params}: {params: {generalId: string}}
+  {params}: {params: {primarioId: string}}
 ) {
   try {
     const body: unknown = await req.json();
     const newData = generalFormSchema.parse(body);
 
-    const existingGeneralById = await db.nit2xli.findUnique({ where: { deduplicationId: params.generalId } });
+    const existingGeneralById = await db.nit2xli.findUnique({ where: { deduplicationId: params.primarioId } });
 
     if (!existingGeneralById) 
       return NextResponse.json("General does not exist", { status: 400 });
@@ -54,16 +54,16 @@ export async function PATCH(
 
 export async function DELETE(
   req: Request,
-  {params}: {params: {generalId: string}}
+  {params}: {params: {primarioId: string}}
 ) {
   try {
-    if (!String(params.generalId)) return new NextResponse("General UUID must be a string", { status: 400 });
+    if (!String(params.primarioId)) return new NextResponse("General UUID must be a string", { status: 400 });
     
-    const general = await db.nit2xli.findUnique({ where: {deduplicationId: params.generalId} });
+    const general = await db.nit2xli.findUnique({ where: {deduplicationId: params.primarioId} });
 
     if (!general) return NextResponse.json("Invalid general UUID", { status: 400 });
 
-    const deletedGeneral = await db.nit2xli.delete({ where: {deduplicationId: params.generalId} });
+    const deletedGeneral = await db.nit2xli.delete({ where: {deduplicationId: params.primarioId} });
 
     return NextResponse.json(deletedGeneral);
 

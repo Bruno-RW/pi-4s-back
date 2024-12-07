@@ -8,7 +8,7 @@ const Search: React.FC<SearchProps> = ({ isActive }) => {
   return (
     <div className="relative group">
       <input className={cn("bg-border-shadow text-black/80 w-96 max-w-[10rem] sm:max-w-[20rem] md:max-w-[24rem] h-10 px-4 rounded-2xl outline-none transition-all dark:text-neutral-100 dark:placeholder:text-neutral-300", !isActive && "max-w-[6rem] sm:max-w-[14rem] md:max-w-[20rem] lg:max-w-[24rem]")}
-        placeholder="Search..."
+        placeholder="Procurar..."
         type="search"
         name="search"
         id="search"

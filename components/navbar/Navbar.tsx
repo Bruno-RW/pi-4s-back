@@ -17,7 +17,7 @@ const Navbar: React.FC<NavbarProps> = ({ isActive }) => {
       <div className="flex items-center gap-x-3.5 text-gray-50 font-medium mt-5 mb-8 ml-3.5 pointer-events-none dark:text-neutral-50">
         <MdOutlineSensors size={28} />
         <span className="pt-1 whitespace-nowrap">
-          {isActive ? "" : "Sensor Data Visualization"}
+          {isActive ? "" : "Visualização Dados Sensor"}
         </span>
       </div>
 

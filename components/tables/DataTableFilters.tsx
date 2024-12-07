@@ -20,7 +20,7 @@ export function DataTableFilters<TData>({ table, searchKey }: DataTableFiltersPr
   return (
     <div className="flex items-center justify-between">
       <Input className="max-w-sm dark:bg-neutral-950/50"
-        placeholder={`Search ${searchKey}`}
+        placeholder={`Procurar "${searchKey}"`}
         value={(table.getColumn(searchKey)?.getFilterValue() as string) ?? ""}
         onChange={(event: any) => table.getColumn(searchKey)?.setFilterValue(event.target.value)}
       />
@@ -28,12 +28,12 @@ export function DataTableFilters<TData>({ table, searchKey }: DataTableFiltersPr
       <DropdownMenu modal={false}>
         <DropdownMenuTrigger asChild>
           <Button className="hidden h-8 lg:flex dark:bg-neutral-950/50" variant="outline" size="sm">
-            <PiSlidersHorizontal className="mr-2 h-4 w-4" /> Columns
+            <PiSlidersHorizontal className="mr-2 h-4 w-4" /> Colunas
           </Button>
         </DropdownMenuTrigger>
 
         <DropdownMenuContent align="end" className="w-[150px] dark:bg-[#101010]">
-          <DropdownMenuLabel>Toggle columns</DropdownMenuLabel>
+          <DropdownMenuLabel>Alternar colunas</DropdownMenuLabel>
           <DropdownMenuSeparator />
           {table
             .getAllColumns()

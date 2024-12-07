@@ -20,7 +20,7 @@ const ApiList: React.FC<ApiListProps> = ({ entityIdName, entityName, type = "adm
   return (
     <section className="flex flex-col gap-y-3">
       <div className="flex flex-col gap-y-3">
-        <Heading subtitle="API" description={`API calls for ${entityName}`} />
+        <Heading subtitle="API" description={`Chamadas de API para ${entityName}`} />
         <Separator />
       </div>
 

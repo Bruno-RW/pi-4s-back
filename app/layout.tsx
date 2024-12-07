@@ -6,8 +6,8 @@ import ContextProvider from "@/providers/ContextProvider";
 import "@/app/globals.css";
 
 export const metadata: Metadata = {
-  title: "Sensor Data Visualization",
-  description: "Sensor Data Visualization",
+  title: "Visualização Dados Sensor",
+  description: "Visualização Dados Sensor",
 };
 
 const font = Roboto({ 

@@ -25,13 +25,13 @@ const UsersActions: React.FC<UsersActionsProps> = ({ data }) => {
   const onConfirm = async () => {
     try {
       setIsLoading(true);
-      await axios.delete(`/api/users/${data.id}`);
+      await axios.delete(`/api/usuarios/${data.id}`);
 
-      toast.success("User deleted", toastStyle);
+      toast.success("Usuário deletado", toastStyle);
       router.refresh();
 
     } catch (error) {
-      toast.error("Internal error", toastStyle);
+      toast.error("Erro interno", toastStyle);
 
     } finally {
       setIsOpen(false);
@@ -41,7 +41,7 @@ const UsersActions: React.FC<UsersActionsProps> = ({ data }) => {
 
   const onCopy = (id: string) => {
     navigator.clipboard.writeText(id);
-    toast.success("User ID copied to clipboard", toastStyle);
+    toast.success("ID do usuário copiado", toastStyle);
   };
 
   return (
@@ -54,13 +54,13 @@ const UsersActions: React.FC<UsersActionsProps> = ({ data }) => {
       />
 
       <div className="flex items-center justify-center gap-x-2">
-        <Tooltip content="Copy ID">
+        <Tooltip content="Copiar ID">
           <Copy className="h-4 w-4 cursor-pointer" onClick={() => onCopy(data.id.toString())} />
         </Tooltip>
-        <Tooltip className="text-blue-500" content="Edit">
-          <Edit className="text-blue-500 h-4 w-4 cursor-pointer" onClick={() => router.push(`/users/${data.id}`)} />
+        <Tooltip className="text-blue-500" content="Editar">
+          <Edit className="text-blue-500 h-4 w-4 cursor-pointer" onClick={() => router.push(`/usuarios/${data.id}`)} />
         </Tooltip>
-        <Tooltip className="text-red-500" content="Delete">
+        <Tooltip className="text-red-500" content="Deletar">
           <Trash className="text-red-500 h-4 w-4 cursor-pointer" onClick={() => setIsOpen(true)} />
         </Tooltip>
       </div>

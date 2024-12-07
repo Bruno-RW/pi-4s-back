@@ -23,14 +23,14 @@ export const UsersColumns: ColumnDef<UsersColumnsProps>[] = [
     id: "select",
     header: ({ table }) => (
       <Checkbox
-        aria-label="Select all"
+        aria-label="Selecionar todos"
         checked={table.getIsAllPageRowsSelected()}
         onCheckedChange={value => table.toggleAllPageRowsSelected(!!value)}
       />
     ),
     cell: ({ row }) => (
       <Checkbox
-        aria-label="Select row"
+        aria-label="Selecionar linha"
         checked={row.getIsSelected()}
         onCheckedChange={value => row.toggleSelected(!!value)}
       />
@@ -68,7 +68,7 @@ export const UsersColumns: ColumnDef<UsersColumnsProps>[] = [
   
   {
     id: "actions",
-    header: () => centered("Actions"),
+    header: () => centered("Ações"),
     cell: ({ row }) => <UsersAction data={row.original} />,
   },
 ];

@@ -8,9 +8,9 @@ interface UsersDataProps { data: UsersColumnsProps[] };
 const UsersData: React.FC<UsersDataProps> = ({ data }) => {
   return (
     <>
-      <DataTable entityName="users" searchKey="name" columns={UsersColumns} data={data} />
+      <DataTable entityName="usuarios" searchKey="name" columns={UsersColumns} data={data} />
 
-      <ApiList entityName="users" entityIdName="userId" type="master" />
+      <ApiList entityName="usuarios" entityIdName="usuarioId" type="master" />
     </>
   );
 };

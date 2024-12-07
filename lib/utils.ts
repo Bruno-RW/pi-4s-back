@@ -11,7 +11,7 @@ export function capitalize(string: string) {
 };
 
 export function formatNumber(number: number) {
-  return new Intl.NumberFormat('en-US').format(number)
+  return new Intl.NumberFormat('pt-BR').format(number)
 };
 
 export function getInitials(fullName: string) {
@@ -36,7 +36,6 @@ export function formatDateTime(
   defaultOptions: Boolean = true,
   options: Intl.DateTimeFormatOptions = {}
 ) {
-  
   if (!date) return "";
 
   const dateOptions: Intl.DateTimeFormatOptions = {
@@ -47,5 +46,13 @@ export function formatDateTime(
 
   const formatOptions = defaultOptions ? { ...dateOptions, ...options } : options;
 
-  return new Intl.DateTimeFormat("pt-BR", formatOptions).format(date);
+  let formattedDate = new Intl.DateTimeFormat("pt-BR", formatOptions).format(date);
+
+  if (options.month == "short") {
+    formattedDate = formattedDate
+    .replace( /\b\w/g, char => char.toUpperCase() )
+    .replace( '.', '' );
+  }
+
+  return formattedDate;
 };

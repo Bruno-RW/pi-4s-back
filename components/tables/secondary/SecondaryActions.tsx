@@ -25,13 +25,13 @@ const SecondaryActions: React.FC<SecondaryActionsProps> = ({ data }) => {
   const onConfirm = async () => {
     try {
       setIsLoading(true);
-      await axios.delete(`/api/secondary/${data.deduplicationId}`);
+      await axios.delete(`/api/secundario/${data.deduplicationId}`);
 
-      toast.success("Secondary deleted", toastStyle);
+      toast.success("Secundário deletado", toastStyle);
       router.refresh();
 
     } catch (error) {
-      toast.error("Internal error", toastStyle);
+      toast.error("Erro interno", toastStyle);
 
     } finally {
       setIsOpen(false);
@@ -41,7 +41,7 @@ const SecondaryActions: React.FC<SecondaryActionsProps> = ({ data }) => {
 
   const onCopy = (id: string) => {
     navigator.clipboard.writeText(id);
-    toast.success("Secondary ID copied to clipboard", toastStyle);
+    toast.success("ID secundário copiado", toastStyle);
   };
 
   return (
@@ -58,7 +58,7 @@ const SecondaryActions: React.FC<SecondaryActionsProps> = ({ data }) => {
           <Copy className="h-4 w-4 cursor-pointer" onClick={() => onCopy(data.deduplicationId.toString())} />
         </Tooltip>
         <Tooltip className="text-blue-500" content="Edit">
-          <Edit className="text-blue-500 h-4 w-4 cursor-pointer" onClick={() => router.push(`/secondary/${data.deduplicationId}`)} />
+          <Edit className="text-blue-500 h-4 w-4 cursor-pointer" onClick={() => router.push(`/secundario/${data.deduplicationId}`)} />
         </Tooltip>
         <Tooltip className="text-red-500" content="Delete">
           <Trash className="text-red-500 h-4 w-4 cursor-pointer" onClick={() => setIsOpen(true)} />

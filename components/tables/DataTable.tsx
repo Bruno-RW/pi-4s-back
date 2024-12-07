@@ -74,7 +74,7 @@ export default function DataTable<TData, TValue>({ columns, entityName, searchKe
     <section className="flex flex-col gap-y-3">
       <div className="flex flex-col gap-y-3">
         <div className="flex items-center justify-between">
-          <Heading title={`${capitalize(entityName)} (${formatNumber(data.length)})`} description={`Manage ${entityName}`} />
+          <Heading title={`${capitalize(entityName)} (${formatNumber(data.length)})`} description={`Gerenciar ${entityName}`} />
 
           <Button className="bg-border-shadow px-3" href={`/${entityName}/new`}>
             <AiOutlinePlus size={20} />

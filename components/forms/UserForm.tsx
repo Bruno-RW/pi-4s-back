@@ -41,10 +41,10 @@ const UserForm: React.FC<UserFormProps> = ({ initialData }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const title        = initialData ? "Edit user" : "Create user";
-  const description  = initialData ? "Edit admin user" : "New admin user";
-  const toastMessage = initialData ? "User updated" : "User created";
-  const submitLabel  = initialData ? (isLoading ? "Saving..." : "Save") : (isLoading ? "Creating..." : "Create");
+  const title        = initialData ? "Editar usuário" : "Criar usuário";
+  const description  = initialData ? "Editar usuário admin" : "Criar usuário admin";
+  const toastMessage = initialData ? "Usuário atualizado" : "Usuário criado";
+  const submitLabel  = initialData ? (isLoading ? "Salvando..." : "Salvo") : (isLoading ? "Criando..." : "Criado");
   
   const { 
     handleSubmit, 
@@ -59,10 +59,10 @@ const UserForm: React.FC<UserFormProps> = ({ initialData }) => {
     try {
       setIsLoading(true);
 
-      if (initialData) await axios.patch(`/api/users/${params.userId}`, data);
-      else await axios.post("/api/users/new", data);
+      if (initialData) await axios.patch(`/api/usuarios/${params.usuarioId}`, data);
+      else await axios.post("/api/usuarios/new", data);
 
-      router.push("/users");
+      router.push("/usuarios");
       toast.success(toastMessage, toastStyle);
 
     } catch (error: any) {
@@ -78,13 +78,13 @@ const UserForm: React.FC<UserFormProps> = ({ initialData }) => {
   const onDelete = async () => {
     try {
       setIsLoading(true);
-      await axios.delete(`/api/users/${params.userId}`);
+      await axios.delete(`/api/usuarios/${params.usuarioId}`);
 
-      router.push("/users");
-      toast.success("User deleted", toastStyle);
+      router.push("/usuarios");
+      toast.success("Usuário deletado", toastStyle);
 
     } catch (error) {
-      toast.error("Internal error", toastStyle);
+      toast.error("Erro interno", toastStyle);
 
     } finally {
       setIsOpen(false);
@@ -120,7 +120,7 @@ const UserForm: React.FC<UserFormProps> = ({ initialData }) => {
               <Input endContent={<LuUser {...iconStyle} />}
                 {...register("name")}
                 defaultValue={initialData?.name || ""}
-                label="Name"
+                label="Nome"
                 variant="bordered"
                 autoFocus
                 autoComplete="new-password"
@@ -133,7 +133,7 @@ const UserForm: React.FC<UserFormProps> = ({ initialData }) => {
               <Select
                 {...register("type")}
                 defaultSelectedKeys={initialData?.type || ""}
-                label="Type"
+                label="Tipo"
                 variant="bordered"
                 autoComplete="new-password"
                 items={userTypes}
@@ -162,7 +162,7 @@ const UserForm: React.FC<UserFormProps> = ({ initialData }) => {
               <Input endContent={<LuUnlock {...iconStyle} />}
                 {...register("password")}
                 type="password"
-                label="Password"
+                label="Senha"
                 variant="bordered"
                 autoComplete="new-password"
                 isRequired={!initialData}
@@ -174,7 +174,7 @@ const UserForm: React.FC<UserFormProps> = ({ initialData }) => {
               <Input endContent={<LuLock {...iconStyle} />}
                 {...register("confirmPassword")}
                 type="password"
-                label="Confirm password"
+                label="Confirmar senha"
                 variant="bordered"
                 autoComplete="new-password"
                 isRequired={!initialData}

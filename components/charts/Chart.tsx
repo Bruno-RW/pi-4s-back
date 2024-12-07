@@ -1,18 +1,24 @@
 import BarChart from "@/components/charts/BarChart";
 import ColumnChart from "@/components/charts/ColumnChart";
+import PieChart from "@/components/charts/PieChart";
 
 interface DataProps { [key: string]: any };
 
 interface ChartProps {
   cardTitle: string;
   cardDescription?: string;
-  chartType: "column" | "bar";
+  chartType: "column" | "bar" | "pie"; // Update this line
   data: DataProps[];
   
   className?: string;
-  xColumn:string;
-  yColumn:string;
+  xColumn?:string;
+  yColumn?:string;
 
+  nameKey?: string;
+  chartDataKey?: string;
+  labelDataKey?: string;
+
+  dataKey?: string;
   dataKeyX?: string;
   dataKeyY?: string;
   labelFormatter?: (value: any) => string;
@@ -21,6 +27,7 @@ interface ChartProps {
   hideXAxis?: boolean;
   hideYAxis?: boolean;
   chartMargins?: { top?: number; right?: number; bottom?: number; left?: number };
+  chartConfig?: any;
 };
 
 const Chart: React.FC<ChartProps> = async({
@@ -33,6 +40,10 @@ const Chart: React.FC<ChartProps> = async({
   xColumn,
   yColumn,
 
+  nameKey,
+  chartDataKey,
+  labelDataKey,
+
   dataKeyX,
   dataKeyY,
   labelFormatter,
@@ -41,52 +52,76 @@ const Chart: React.FC<ChartProps> = async({
   hideXAxis,
   hideYAxis,
   chartMargins,
-
+  chartConfig
 }) => {
   //TODO: Create data filter
 
-  const chartData = data ? data.map(item => ({
-    x: item[xColumn],
-    y: item[yColumn]
-  })) : [];
+  if (chartType !== "pie" && xColumn && yColumn) {
+    data = data ? data.map(item => ({
+      x: item[xColumn],
+      y: item[yColumn]
+    })) : [];
+  }
 
   return (
     <div className="flex-1 p-2">
-      {
-        chartType === "column" ? (
-          <ColumnChart
-            cardTitle={cardTitle}
-            cardDescription={cardDescription}
-            chartData={chartData}
+      {(() => {
+        switch (chartType) {
+          case "column":
+            return (
+              <ColumnChart
+                cardTitle={cardTitle}
+                cardDescription={cardDescription}
+                chartData={data}
 
-            className={className}
-            dataKeyX={dataKeyX}
-            dataKeyY={dataKeyY}
-            labelFormatter={labelFormatter}
+                className={className}
+                dataKeyX={dataKeyX}
+                dataKeyY={dataKeyY}
+                labelFormatter={labelFormatter}
 
-            chartLabels={chartLabels}
-            hideXAxis={hideXAxis}
-            hideYAxis={hideYAxis}
-            chartMargins={chartMargins}
-          />
-        ) : (
-          <BarChart
-            cardTitle={cardTitle}
-            cardDescription={cardDescription}
-            chartData={chartData}
+                chartLabels={chartLabels}
+                hideXAxis={hideXAxis}
+                hideYAxis={hideYAxis}
+                chartMargins={chartMargins}
+              />
+            );
+          case "bar":
+            return (
+              <BarChart
+                cardTitle={cardTitle}
+                cardDescription={cardDescription}
+                chartData={data}
 
-            className={className}
-            dataKeyX={dataKeyX}
-            dataKeyY={dataKeyY}
-            labelFormatter={labelFormatter}
+                className={className}
+                dataKeyX={dataKeyX}
+                dataKeyY={dataKeyY}
+                labelFormatter={labelFormatter}
 
-            chartLabels={chartLabels}
-            hideXAxis={hideXAxis}
-            hideYAxis={hideYAxis}
-            chartMargins={chartMargins}
-          />
-        )
-      }
+                chartLabels={chartLabels}
+                hideXAxis={hideXAxis}
+                hideYAxis={hideYAxis}
+                chartMargins={chartMargins}
+              />
+            );
+          case "pie":
+            return (
+              <PieChart
+                cardTitle={cardTitle}
+                cardDescription={cardDescription}
+                chartData={data}
+
+                className={className}
+                nameKey={nameKey}
+                chartDataKey={chartDataKey}
+                labelDataKey={labelDataKey}
+
+                chartConfig={chartConfig}
+              />
+            );
+
+          default: return null;
+        }
+      })()}
     </div>
   );
 };

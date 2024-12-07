@@ -35,10 +35,10 @@ const SecondaryForm: React.FC<SecondaryFormProps> = ({ initialData }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const title        = initialData ? "Edit secondary" : "Create secondary";
-  const description  = initialData ? "Edit admin secondary" : "New admin secondary";
-  const toastMessage = initialData ? "Secondary updated" : "Secondary created";
-  const submitLabel  = initialData ? (isLoading ? "Saving..." : "Save") : (isLoading ? "Creating..." : "Create");
+  const title        = initialData ? "Editar secundário" : "Criar secundário";
+  const description  = initialData ? "Editar secundário admin" : "Criar secundário admin";
+  const toastMessage = initialData ? "Secundário atualizado" : "Secundário criado";
+  const submitLabel  = initialData ? (isLoading ? "Salvando..." : "Salvo") : (isLoading ? "Criando..." : "Criado");
   
   const { 
     handleSubmit, 
@@ -52,10 +52,10 @@ const SecondaryForm: React.FC<SecondaryFormProps> = ({ initialData }) => {
     try {
       setIsLoading(true);
 
-      if (initialData) await axios.patch(`/api/secondary/${params.userId}`, data);
-      else await axios.post("/api/secondary/new", data);
+      if (initialData) await axios.patch(`/api/secundario/${params.secundarioId}`, data);
+      else await axios.post("/api/secundario/new", data);
 
-      router.push("/secondary");
+      router.push("/secundario");
       toast.success(toastMessage, toastStyle);
 
     } catch (error: any) {
@@ -71,13 +71,13 @@ const SecondaryForm: React.FC<SecondaryFormProps> = ({ initialData }) => {
   const onDelete = async () => {
     try {
       setIsLoading(true);
-      await axios.delete(`/api/secondary/${params.secondaryId}`);
+      await axios.delete(`/api/secundario/${params.secundarioId}`);
 
       router.push("/secondary");
-      toast.success("Secondary deleted", toastStyle);
+      toast.success("Secundário deletado", toastStyle);
 
     } catch (error) {
-      toast.error("Internal error", toastStyle);
+      toast.error("Erro interno", toastStyle);
 
     } finally {
       setIsOpen(false);
@@ -114,7 +114,7 @@ const SecondaryForm: React.FC<SecondaryFormProps> = ({ initialData }) => {
               <Input endContent={<IoBarcodeOutline {...iconStyle} />}
                 {...register("devEui")}
                 defaultValue={initialData?.devEui || ""}
-                label="Device EUI"
+                label="EUI dispositivo"
                 variant="bordered"
                 autoComplete="new-password"
               />
@@ -125,7 +125,7 @@ const SecondaryForm: React.FC<SecondaryFormProps> = ({ initialData }) => {
               <Input endContent={<CgRename {...iconStyle} />}
                 {...register("deviceName")}
                 defaultValue={initialData?.deviceName || ""}
-                label="Device name"
+                label="Nome dispositivo"
                 variant="bordered"
                 autoFocus
                 autoComplete="new-password"
@@ -143,7 +143,7 @@ const SecondaryForm: React.FC<SecondaryFormProps> = ({ initialData }) => {
                 type="number"
                 defaultValue={initialData?.noise?.toString() || ""}
                 placeholder="0.0"
-                label="Noise"
+                label="Barulho"
                 variant="bordered"
                 autoComplete="new-password"
               />
@@ -156,7 +156,7 @@ const SecondaryForm: React.FC<SecondaryFormProps> = ({ initialData }) => {
                 type="number"
                 defaultValue={initialData?.temperature?.toString() || ""}
                 placeholder="0.0"
-                label="Temperature"
+                label="Temepartura"
                 variant="bordered"
                 autoComplete="new-password"
               />
@@ -169,7 +169,7 @@ const SecondaryForm: React.FC<SecondaryFormProps> = ({ initialData }) => {
                 type="number"
                 defaultValue={initialData?.voltage?.toString() || ""}
                 placeholder="0.0"
-                label="Voltage"
+                label="Voltagem"
                 variant="bordered"
                 autoComplete="new-password"
               />
@@ -185,7 +185,7 @@ const SecondaryForm: React.FC<SecondaryFormProps> = ({ initialData }) => {
                 type="number"
                 defaultValue={initialData?.humidity?.toString() || ""}
                 placeholder="0"
-                label="Humidity"
+                label="Umidade"
                 variant="bordered"
                 autoComplete="new-password"
                 isRequired

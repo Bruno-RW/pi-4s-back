@@ -10,26 +10,26 @@ const routePermissions: RoutePermissions = {
   "/": "A",
 
   //? API
-  "/api/general": "A",
-  "/api/secondary": "A",
+  "/api/primario": "A",
+  "/api/secundario": "A",
   // "/api/rain": "A",
   // "/api/wind": "A",
   // "/api/temperature": "A",
   // "/api/light": "A",
   // "/api/humidity": "A",
   // "/api/pressure": "A",
-  "/api/users": "M",
+  "/api/usuarios": "M",
 
   //? Pages
-  "/general": "A",
-  "/secondary": "A",
+  "/primario": "A",
+  "/secundario": "A",
   // "/rain": "A",
   // "/wind": "A",
   // "/temperature": "A",
   // "/light": "A",
   // "/humidity": "A",
   // "/pressure": "A",
-  "/users": "M",
+  "/usuarios": "M",
 };
 
 export default withAuth(

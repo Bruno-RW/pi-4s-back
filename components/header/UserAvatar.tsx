@@ -17,7 +17,7 @@ const UserAvatar = () => {
   const { theme, toggleTheme } = useTheme();
   const { data: session } = useSession();
 
-  const userName = getInitials(session?.user.name || "Default User");
+  const userName = getInitials(session?.user.name || "Usuário Padrão");
 
   return (
     <Dropdown>
@@ -28,7 +28,7 @@ const UserAvatar = () => {
               src="/public/pfp.png"
               width={25}
               height={25}
-              alt="Profile image"
+              alt="Imagem de perfil"
             />
           ) : (
             <div className="py-2.5 px-3 rounded-full bg-gray-300 dark:bg-neutral-600">
@@ -38,17 +38,17 @@ const UserAvatar = () => {
         </div>
       </DropdownTrigger>
 
-      <DropdownMenu aria-label="User options">
-        <DropdownItem className="flex" onClick={toggleTheme} key="theme" textValue="theme">
-          Theme: {theme === "dark" ? "dark" : "light"}
+      <DropdownMenu aria-label="Opções de usuário">
+        <DropdownItem className="flex" onClick={toggleTheme} key="tema" textValue="tema">
+          Tema: {theme === "dark" ? "escuro" : "claro"}
         </DropdownItem>
 
-        <DropdownItem key="settings" textValue="settings">
-          Settings
+        <DropdownItem key="configuracoes" textValue="configuracoes">
+          Configurações
         </DropdownItem>
 
         <DropdownItem className="text-danger" color="danger" key="logout" textValue="logout" onClick={() => signOut()}>
-          Log out
+          Sair
         </DropdownItem>
       </DropdownMenu>
     </Dropdown>

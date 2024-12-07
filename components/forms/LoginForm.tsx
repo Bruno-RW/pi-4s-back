@@ -21,7 +21,7 @@ const LoginForm = () => {
   const { toastStyle } = useToastStyle();
   const [isLoading, setIsLoading] = useState(false);
 
-  const submitLabel  = (isLoading ? "Signing in..." : "Sign in");
+  const submitLabel  = (isLoading ? "Entrando..." : "Entrar");
 
   const { handleSubmit, register, reset, formState: {errors} } = useForm<loginFormData>({
     resolver: zodResolver(loginFormSchema),
@@ -43,7 +43,7 @@ const LoginForm = () => {
       });
 
       if (loginData?.error) {
-        toast.error("Incorrect e-mail or password", toastStyle);
+        toast.error("E-mail ou senha incorretos", toastStyle);
         isUserError = true;
         return;
       }
@@ -51,7 +51,7 @@ const LoginForm = () => {
       router.push("/");
 
     } catch (error) {
-      toast.error("Something went wrong", toastStyle);
+      toast.error("Algo deu errado", toastStyle);
     }
   };
 
@@ -77,7 +77,7 @@ const LoginForm = () => {
             className="self-center"
             type="password"
             name="password"
-            label="Password"
+            label="Senha"
             variant="bordered"
           />
           {errors.password && <ErrorMessage message={errors.password.message} />}

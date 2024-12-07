@@ -27,15 +27,15 @@ export const navbarInfo = [
   },
 
   {
-    label: "General",
-    url: "/general",
+    label: "Primário",
+    url: "/primario",
     type: "A",
     icon: MdOutlineGraphicEq,
   },
 
   {
-    label: "Secondary",
-    url: "/secondary",
+    label: "Secundário",
+    url: "/secundario",
     type: "A",
     icon: MdOutlineGraphicEq,
   },
@@ -77,19 +77,19 @@ export const navbarInfo = [
   // },
 
   {
-    label: "Users",
-    url: "/users",
+    label: "Usuários",
+    url: "/usuarios",
     type: "M",
     icon: LiaUserShieldSolid,
   },
   {
-    label: "Settings",
-    url: "/settings",
+    label: "Configurações",
+    url: "/configuracoes",
     type: "A",
     icon: LuSettings,
   },
   {
-    label: "Log Out",
+    label: "Sair",
     url: "#",
     type: "A",
     icon: FiLogOut,

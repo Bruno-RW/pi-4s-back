@@ -6,12 +6,12 @@ import { editUserFormSchema } from "@/lib/types/forms";
 
 export async function GET(
   req: Request,
-  {params}: {params: {userId: string}}
+  {params}: {params: {usuarioId: string}}
 ) {
   try {
-    if (!Number(params.userId)) return new NextResponse("User ID must be a number", { status: 400 });
+    if (!Number(params.usuarioId)) return new NextResponse("User ID must be a number", { status: 400 });
     
-    const user = await db.user.findUnique({ where: {id: Number(params.userId)} });
+    const user = await db.user.findUnique({ where: {id: Number(params.usuarioId)} });
 
     if (!user) return NextResponse.json("Invalid user ID", { status: 400 });
 
@@ -25,13 +25,13 @@ export async function GET(
 
 export async function PATCH(
   req: Request,
-  {params}: {params: {userId: string}}
+  {params}: {params: {usuarioId: string}}
 ) {
   try {
     const body: unknown = await req.json();
     const { name, email, type, password } = editUserFormSchema.parse(body);
 
-    const existingUserById = await db.user.findUnique({ where: { id: Number(params.userId) } });
+    const existingUserById = await db.user.findUnique({ where: { id: Number(params.usuarioId) } });
 
     if (!existingUserById) 
       return NextResponse.json("User does not exist", { status: 400 });
@@ -81,16 +81,16 @@ export async function PATCH(
 
 export async function DELETE(
   req: Request,
-  {params}: {params: {userId: string}}
+  {params}: {params: {usuarioId: string}}
 ) {
   try {
-    if (!Number(params.userId)) return new NextResponse("User ID must be a number", { status: 400 });
+    if (!Number(params.usuarioId)) return new NextResponse("User ID must be a number", { status: 400 });
     
-    const user = await db.user.findUnique({ where: {id: Number(params.userId)} });
+    const user = await db.user.findUnique({ where: {id: Number(params.usuarioId)} });
 
     if (!user) return NextResponse.json("Invalid user ID", { status: 400 });
 
-    const deletedUser = await db.user.delete({ where: {id: Number(params.userId)} });
+    const deletedUser = await db.user.delete({ where: {id: Number(params.usuarioId)} });
 
     return NextResponse.json(deletedUser);
 
