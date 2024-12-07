@@ -9,12 +9,12 @@ const SecondaryData: React.FC<SecondaryDataProps> = ({ data }) => {
   return (
     <>
       <DataTable 
-        entityName="secundario" 
+        entityName="secundarios" 
         searchKey="deviceName" 
         columns={SecondaryColumns} 
         data={data} />
 
-      <ApiList entityName="secundario" entityIdName="secundarioId" type="admin" />
+      <ApiList entityName="secundarios" entityIdName="secundarioId" type="admin" />
     </>
   );
 };

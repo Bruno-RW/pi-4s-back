@@ -36,7 +36,7 @@ const SecondaryForm: React.FC<SecondaryFormProps> = ({ initialData }) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const title        = initialData ? "Editar secundário" : "Criar secundário";
-  const description  = initialData ? "Editar secundário admin" : "Criar secundário admin";
+  const description  = initialData ? "Editar dados de sensor" : "Criar dados de sensor";
   const toastMessage = initialData ? "Secundário atualizado" : "Secundário criado";
   const submitLabel  = initialData ? (isLoading ? "Salvando..." : "Salvo") : (isLoading ? "Criando..." : "Criado");
   
@@ -52,10 +52,10 @@ const SecondaryForm: React.FC<SecondaryFormProps> = ({ initialData }) => {
     try {
       setIsLoading(true);
 
-      if (initialData) await axios.patch(`/api/secundario/${params.secundarioId}`, data);
-      else await axios.post("/api/secundario/new", data);
+      if (initialData) await axios.patch(`/api/secundarios/${params.secundarioId}`, data);
+      else await axios.post("/api/secundarios/new", data);
 
-      router.push("/secundario");
+      router.push("/secundarios");
       toast.success(toastMessage, toastStyle);
 
     } catch (error: any) {
@@ -71,9 +71,9 @@ const SecondaryForm: React.FC<SecondaryFormProps> = ({ initialData }) => {
   const onDelete = async () => {
     try {
       setIsLoading(true);
-      await axios.delete(`/api/secundario/${params.secundarioId}`);
+      await axios.delete(`/api/secundarios/${params.secundarioId}`);
 
-      router.push("/secondary");
+      router.push("/secundarios");
       toast.success("Secundário deletado", toastStyle);
 
     } catch (error) {

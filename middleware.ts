@@ -10,8 +10,8 @@ const routePermissions: RoutePermissions = {
   "/": "A",
 
   //? API
-  "/api/primario": "A",
-  "/api/secundario": "A",
+  "/api/primarios": "A",
+  "/api/secundarios": "A",
   // "/api/rain": "A",
   // "/api/wind": "A",
   // "/api/temperature": "A",
@@ -21,8 +21,8 @@ const routePermissions: RoutePermissions = {
   "/api/usuarios": "M",
 
   //? Pages
-  "/primario": "A",
-  "/secundario": "A",
+  "/primarios": "A",
+  "/secundarios": "A",
   // "/rain": "A",
   // "/wind": "A",
   // "/temperature": "A",

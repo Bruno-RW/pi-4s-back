@@ -27,15 +27,15 @@ export const navbarInfo = [
   },
 
   {
-    label: "Primário",
-    url: "/primario",
+    label: "Primários",
+    url: "/primarios",
     type: "A",
     icon: MdOutlineGraphicEq,
   },
 
   {
-    label: "Secundário",
-    url: "/secundario",
+    label: "Secundários",
+    url: "/secundarios",
     type: "A",
     icon: MdOutlineGraphicEq,
   },

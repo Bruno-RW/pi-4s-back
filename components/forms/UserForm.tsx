@@ -42,7 +42,7 @@ const UserForm: React.FC<UserFormProps> = ({ initialData }) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const title        = initialData ? "Editar usuário" : "Criar usuário";
-  const description  = initialData ? "Editar usuário admin" : "Criar usuário admin";
+  const description  = initialData ? "Editar usuário administrador" : "Criar usuário administrador";
   const toastMessage = initialData ? "Usuário atualizado" : "Usuário criado";
   const submitLabel  = initialData ? (isLoading ? "Salvando..." : "Salvo") : (isLoading ? "Criando..." : "Criado");
   

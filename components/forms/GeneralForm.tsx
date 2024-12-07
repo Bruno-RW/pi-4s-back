@@ -44,10 +44,10 @@ const GeneralForm: React.FC<GeneralFormProps> = ({ initialData }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const title        = initialData ? "Edit general" : "Create general";
-  const description  = initialData ? "Edit admin general" : "New admin general";
-  const toastMessage = initialData ? "General updated" : "General created";
-  const submitLabel  = initialData ? (isLoading ? "Saving..." : "Save") : (isLoading ? "Creating..." : "Create");
+  const title        = initialData ? "Editar primário" : "Criar primário";
+  const description  = initialData ? "Editar dados de sensor" : "Criar primário de sensor";
+  const toastMessage = initialData ? "Primário atualizado" : "Primário criado";
+  const submitLabel  = initialData ? (isLoading ? "Salvando..." : "Salvo") : (isLoading ? "Criando..." : "Criado");
   
   const { 
     handleSubmit, 
@@ -61,10 +61,10 @@ const GeneralForm: React.FC<GeneralFormProps> = ({ initialData }) => {
     try {
       setIsLoading(true);
 
-      if (initialData) await axios.patch(`/api/general/${params.userId}`, data);
-      else await axios.post("/api/general/new", data);
+      if (initialData) await axios.patch(`/api/primarios/${params.primarioId}`, data);
+      else await axios.post("/api/primarios/new", data);
 
-      router.push("/general");
+      router.push("/primarios");
       toast.success(toastMessage, toastStyle);
 
     } catch (error: any) {
@@ -80,13 +80,13 @@ const GeneralForm: React.FC<GeneralFormProps> = ({ initialData }) => {
   const onDelete = async () => {
     try {
       setIsLoading(true);
-      await axios.delete(`/api/general/${params.generalId}`);
+      await axios.delete(`/api/primarios/${params.primarioId}`);
 
-      router.push("/general");
-      toast.success("General deleted", toastStyle);
+      router.push("/primarios");
+      toast.success("Primário deletado", toastStyle);
 
     } catch (error) {
-      toast.error("Internal error", toastStyle);
+      toast.error("Erro interno", toastStyle);
 
     } finally {
       setIsOpen(false);

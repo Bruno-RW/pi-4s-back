@@ -9,12 +9,12 @@ const GeneralData: React.FC<GeneralDataProps> = ({ data }) => {
   return (
     <>
       <DataTable 
-        entityName="general" 
+        entityName="primarios" 
         searchKey="deviceName" 
         columns={GeneralColumns} 
         data={data} />
 
-      <ApiList entityName="general" entityIdName="generalId" type="admin" />
+      <ApiList entityName="primarios" entityIdName="primarioId" type="admin" />
     </>
   );
 };
