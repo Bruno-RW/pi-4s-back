@@ -41,8 +41,8 @@ const getColorForDevice = (deviceName: string) => {
 
 const HomePage = async() => {
   //? ------ Get data from database ------ ?//
-  const generalData = await db.nit2xli.findMany({take: 10000});
-  const secondaryData = await db.k72623_lo.findMany({take: 10000});
+  const generalData = await db.nit2xli.findMany();
+  const secondaryData = await db.k72623_lo.findMany();
 
   const generalFormattedData = generalData.map(item => ({
     ...item,
