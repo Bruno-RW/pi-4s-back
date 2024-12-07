@@ -66,7 +66,7 @@ const PieChart: React.FC<PieChartProps> = ({
           <PChart>
             <ChartTooltip
               content={
-                <ChartTooltipContent nameKey={chartDataKey} hideLabel className="w-36" />
+                <ChartTooltipContent nameKey={chartDataKey} hideLabel className="w-40" />
               }
             />
 
