@@ -197,7 +197,7 @@ const HomePage = async() => {
           />
 
           <Card classCard="w-1/2"
-            cardTitle="Qtd. dados k72623_lo"
+            cardTitle="Quantidade dados"
             cardContent={formatNumber(secondaryTotalRows)}
           />
         </div>
