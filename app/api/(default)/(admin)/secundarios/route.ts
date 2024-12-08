@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 
 import db from "@/lib/db";
 
-export async function GET() {
+export async function GET(req: Request) {
   try {
     const sixMonthsAgo = new Date();
     sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);

@@ -4,6 +4,7 @@ import db from "@/lib/db";
 import { generalFormSchema } from "@/lib/types/forms";
 
 export async function GET(
+  req: Request,
   {params}: {params: {primarioId: string}}
 ) {
   try {
@@ -52,6 +53,7 @@ export async function PATCH(
 };
 
 export async function DELETE(
+  req: Request,
   {params}: {params: {primarioId: string}}
 ) {
   try {
