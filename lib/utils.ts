@@ -33,7 +33,7 @@ export function getUrl(headers: ReadonlyHeaders) {
 
 export function formatDateTime(
   date: Date | null,
-  defaultOptions: Boolean = true,
+  defaultOptions: boolean = true,
   options: Intl.DateTimeFormatOptions = {}
 ) {
   if (!date) return "";

@@ -1,7 +1,6 @@
 "use client";
 
 import { 
-  LabelList,
   Pie,
   PieChart as PChart
 } from "recharts";

@@ -1,5 +1,5 @@
 import db from "@/lib/db";
-import { capitalize, formatDateTime, formatNumber } from "@/lib/utils";
+import { formatDateTime, formatNumber } from "@/lib/utils";
 
 import { 
   countTotalRows,
@@ -35,7 +35,7 @@ const deviceColors = {
 };
 
 const getColorForDevice = (deviceName: string) => {
-  // @ts-ignore
+  // @ts-expect-error
   return deviceColors[deviceName] || "var(--color-default)";
 };
 

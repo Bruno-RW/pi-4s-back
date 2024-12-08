@@ -12,23 +12,11 @@ const routePermissions: RoutePermissions = {
   //? API
   "/api/primarios": "A",
   "/api/secundarios": "A",
-  // "/api/rain": "A",
-  // "/api/wind": "A",
-  // "/api/temperature": "A",
-  // "/api/light": "A",
-  // "/api/humidity": "A",
-  // "/api/pressure": "A",
   "/api/usuarios": "M",
 
   //? Pages
   "/primarios": "A",
   "/secundarios": "A",
-  // "/rain": "A",
-  // "/wind": "A",
-  // "/temperature": "A",
-  // "/light": "A",
-  // "/humidity": "A",
-  // "/pressure": "A",
   "/usuarios": "M",
 };
 

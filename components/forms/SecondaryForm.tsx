@@ -38,7 +38,7 @@ const SecondaryForm: React.FC<SecondaryFormProps> = ({ initialData }) => {
   const title        = initialData ? "Editar secundário" : "Criar secundário";
   const description  = initialData ? "Editar dados de sensor" : "Criar dados de sensor";
   const toastMessage = initialData ? "Secundário atualizado" : "Secundário criado";
-  const submitLabel  = initialData ? (isLoading ? "Salvando..." : "Salvo") : (isLoading ? "Criando..." : "Criado");
+  const submitLabel  = initialData ? (isLoading ? "Salvando..." : "Salvar") : (isLoading ? "Criando..." : "Criado");
   
   const { 
     handleSubmit, 

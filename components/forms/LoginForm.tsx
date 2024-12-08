@@ -23,7 +23,11 @@ const LoginForm = () => {
 
   const submitLabel  = (isLoading ? "Entrando..." : "Entrar");
 
-  const { handleSubmit, register, reset, formState: {errors} } = useForm<loginFormData>({
+  const { 
+    handleSubmit,
+    register,
+    formState: {errors} 
+  } = useForm<loginFormData>({
     resolver: zodResolver(loginFormSchema),
     defaultValues: {
       email: "",

@@ -2,11 +2,32 @@ import { NextResponse } from "next/server";
 
 import db from "@/lib/db";
 
-export async function GET(req: Request) {
+export async function GET() {
   try {
-    const general = await db.nit2xli.findMany();
+    const sixMonthsAgo = new Date();
+    sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
+  
+    const general = await db.nit2xli.findMany({
+      where: {
+        time: {
+          gte: sixMonthsAgo
+        }
+      },
+      orderBy: {
+        time: 'desc'
+      }
+    });
 
-    return NextResponse.json(general);
+    const serializedData = general.map((item) => {
+      return Object.fromEntries(
+        Object.entries(item).map(([key, value]) => [
+          key,
+          typeof value === 'bigint' ? value.toString() : value,
+        ])
+      );
+    });
+
+    return NextResponse.json(serializedData);
 
   } catch (error) {
     console.log("[GENERAL_GET]", error);

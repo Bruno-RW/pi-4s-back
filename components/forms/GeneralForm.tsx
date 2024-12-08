@@ -47,7 +47,7 @@ const GeneralForm: React.FC<GeneralFormProps> = ({ initialData }) => {
   const title        = initialData ? "Editar primário" : "Criar primário";
   const description  = initialData ? "Editar dados de sensor" : "Criar primário de sensor";
   const toastMessage = initialData ? "Primário atualizado" : "Primário criado";
-  const submitLabel  = initialData ? (isLoading ? "Salvando..." : "Salvo") : (isLoading ? "Criando..." : "Criado");
+  const submitLabel  = initialData ? (isLoading ? "Salvando..." : "Salvar") : (isLoading ? "Criando..." : "Criado");
   
   const { 
     handleSubmit, 
