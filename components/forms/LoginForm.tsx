@@ -49,6 +49,7 @@ const LoginForm = () => {
       if (loginData?.error) {
         toast.error("E-mail ou senha incorretos", toastStyle);
         isUserError = true;
+        setIsLoading(false);
         return;
       }
       

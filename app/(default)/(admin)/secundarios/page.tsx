@@ -4,6 +4,8 @@ import { formatDateTime } from "@/lib/utils";
 import SecondaryData from "@/components/tables/secondary/SecondaryData";
 import { SecondaryColumnsProps } from "@/components/tables/secondary/SecondaryColumns";
 
+export const dynamic = 'force-dynamic';
+
 const SecondaryPage = async () => {
   const sixMonthsAgo = new Date();
   sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);

@@ -58,7 +58,7 @@ const GeneralActions: React.FC<GeneralActionsProps> = ({ data }) => {
           <Copy className="h-4 w-4 cursor-pointer" onClick={() => onCopy(data.deduplicationId.toString())} />
         </Tooltip>
         <Tooltip className="text-blue-500" content="Editar">
-          <Edit className="text-blue-500 h-4 w-4 cursor-pointer" onClick={() => router.push(`/general/${data.deduplicationId}`)} />
+          <Edit className="text-blue-500 h-4 w-4 cursor-pointer" onClick={() => router.push(`/primarios/${data.deduplicationId}`)} />
         </Tooltip>
         <Tooltip className="text-red-500" content="Deletar">
           <Trash className="text-red-500 h-4 w-4 cursor-pointer" onClick={() => setIsOpen(true)} />

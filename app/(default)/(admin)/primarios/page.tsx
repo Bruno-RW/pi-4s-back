@@ -4,6 +4,8 @@ import { formatDateTime } from "@/lib/utils";
 import GeneralData from "@/components/tables/general/GeneralData";
 import { GeneralColumnsProps } from "@/components/tables/general/GeneralColumns";
 
+export const dynamic = 'force-dynamic';
+
 const GeneralPage = async () => {
   const sixMonthsAgo = new Date();
   sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);

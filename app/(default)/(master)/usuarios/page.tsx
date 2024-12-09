@@ -4,6 +4,8 @@ import { formatDateTime } from "@/lib/utils";
 import UsersData from "@/components/tables/users/UsersData";
 import { UsersColumnsProps } from "@/components/tables/users/UsersColumns";
 
+export const dynamic = 'force-dynamic';
+
 const UsersPage = async () => {
   const users = await db.user.findMany();
 

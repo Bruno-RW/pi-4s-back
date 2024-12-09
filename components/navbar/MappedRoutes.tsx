@@ -24,7 +24,7 @@ const MappedRoutes: React.FC<MappedRoutesProps> = ({ isActive }) => {
   const onClick = (item: any) => {
     if (item.signOut) signOut();
 
-    if (!isMaster && item.type === "M") toast.error("Unauthorized", toastStyle);
+    if (!isMaster && item.type === "M") toast.error("Sem autorização", toastStyle);
   };
 
   return (

@@ -7,7 +7,7 @@ interface RoutePermissions {
 
 const routePermissions: RoutePermissions = {
   //? Dashboard
-  "/": "A",
+  "/$": "A",
 
   //? API
   "/api/primarios": "A",
@@ -22,12 +22,14 @@ const routePermissions: RoutePermissions = {
 
 export default withAuth(
   function middleware(request: NextRequestWithAuth) {
-    const path = Object.keys(routePermissions).find(key => request.nextUrl.pathname.startsWith(key));
-
+    const path = Object.keys(routePermissions).find(key => {
+      const regex = new RegExp(`^${key}`);
+      return regex.test(request.nextUrl.pathname);
+    });
+    
     if (!path) {
       return NextResponse.json({ error: "Path not found" }, { status: 404 });
     }
-
     const requiredPermission = routePermissions[path];
     const userPermission = request.nextauth.token?.type;
 

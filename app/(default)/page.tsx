@@ -22,6 +22,8 @@ import Separator from "@/components/ui/custom/Separator";
 import Chart from "@/components/charts/Chart";
 import Card from "@/components/charts/Card";
 
+export const dynamic = 'force-dynamic';
+
 const deviceColors = {
   "Estação Aeroporto":   "hsl(var(--chart-1))",
   "Estação Cruzeiro":    "hsl(var(--chart-2))",
@@ -95,19 +97,19 @@ const HomePage = async() => {
           <Separator/>
         </div>
 
-        <div className="flex flex-row">
-          <Card classCard="w-1/2 mb-0"
+        <div className="flex flex-row flex-wrap justify-between">
+          <Card classCard="w-[48.8%] mb-0"
             cardTitle="Quantidade dispositivos"
             cardContent={commonTotalDevices.toString()}
           />
 
-          <Card classCard="w-1/2 mb-0"
+          <Card classCard="w-[48.8%] mb-0"
             cardTitle="Quantidade dados totais"
             cardContent={formatNumber(commonTotalRows)}
           />
         </div>
 
-        <div className="flex flex-row">
+        <div className="flex flex-row flex-wrap">
           <Chart 
             cardTitle="Dispositivos primários"
             cardDescription="Contagem de dispositivos na tabela nit2xli"
@@ -145,19 +147,19 @@ const HomePage = async() => {
           <Separator/>
         </div>
 
-        <div className="flex flex-row">
-          <Card classCard="w-1/2"
+        <div className="flex flex-row flex-wrap justify-between">
+          <Card classCard="w-[48.8%]"
             cardTitle="Quantidade dispositivos"
             cardContent={generalTotalDevices.toString()}
           />
 
-          <Card classCard="w-1/2"
+          <Card classCard="w-[48.8%]"
             cardTitle="Quantidade dados"
             cardContent={formatNumber(generalTotalRows)}
           />
         </div>
 
-        <div className="flex flex-row">
+        <div className="flex flex-row flex-wrap">
           <Chart 
             cardTitle="Nível de chuva"
             cardDescription="Média de nível de chuva por mês (mm)"
@@ -193,20 +195,21 @@ const HomePage = async() => {
           <Separator/>
         </div>
 
-        <div className="flex flex-row">
-          <Card classCard="w-1/2"
+        <div className="flex flex-row flex-wrap justify-between">
+          <Card classCard="w-[48.8%]"
             cardTitle="Quantidade dispositivos"
             cardContent={secondaryTotalDevices.toString()}
           />
 
-          <Card classCard="w-1/2"
+          <Card classCard="w-[48.8%]"
             cardTitle="Quantidade dados"
             cardContent={formatNumber(secondaryTotalRows)}
           />
         </div>
 
-        <div className="flex flex-row">
-          <Chart 
+        <div className="flex flex-row flex-wrap">
+          <Chart
+            classCard="w1/2"
             cardTitle="Nível de ruído"
             cardDescription="Média de nível de ruído por mês (dB)"
             chartType="bar"
@@ -216,6 +219,7 @@ const HomePage = async() => {
           />
 
           <Chart 
+            classCard="w1/2"
             cardTitle="Voltagem"
             cardDescription="Média de voltagem por mês (V)"
             chartType="bar"
@@ -225,6 +229,7 @@ const HomePage = async() => {
           />
 
           <Chart 
+            classCard="w1/2"
             cardTitle="PM2.5"
             cardDescription="Média de PM2.5 por mês (µg/m³)"
             chartType="bar"
